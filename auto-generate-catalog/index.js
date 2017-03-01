@@ -16,8 +16,8 @@ function fetchIssues (owner, repository) {
             title: issue.title,
             createdAt: issue.created_at,
             updatedAt: issue.updated_at,
-            labels: issue.labels && issue.labels.map((label) => label.name),
-            milestone: issue.milestone && issue.milestone.title
+            labels: issue.labels,
+            milestone: issue.milestone
           }
         })
       })
@@ -32,13 +32,15 @@ function format (str, pairs) {
 
 fetchIssues(config.owner, config.repository).then((issues) => {
   let catalog = ''
-  let updatedAt = new Date()
+  let now = new Date()
+  let updatedAt = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()} ${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}`
+  let issueHome = `https://github.com/${config.owner}/${config.repository}/issues?q=is%3Aissue+is%3Aopen+label%3A`
 
   issues.forEach((issue) => {
     const date = issue.createdAt.slice(0, 10)
-    const milestone = issue.milestone ? ' `' + issue.milestone + '`' : ''
+    const tags = issue.labels.map((label) => ` | [${label.name}](${issueHome}${label.name})`).join(' ')
     const url = [GITHUB_HOME, config.owner, config.repository, 'issues', issue.number].join('/')
-    catalog += `[ ${date}${milestone} ] [${issue.title}](${url})\n\n`
+    catalog += `[${date}] [${issue.title}](${url})${tags}\n\n`
   })
 
   const template = fs.readFileSync(config.readmeTemplate, 'utf-8')
