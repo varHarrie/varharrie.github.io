@@ -2,7 +2,11 @@
 
 朝花夕拾，人生的智慧在于总结。
 
-> 最后更新时间：2017-4-23 22:37:10
+> 最后更新时间：2017-5-10 14:43:35
+
+[2017-05-10] [JS/Node相关中英文技术文档](https://github.com/varHarrie/Dawn-Blossoms/issues/17) | [Javascript](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3AJavascript)  | [Tools](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3ATools)
+
+[2017-04-25] [批量修改git commit author](https://github.com/varHarrie/Dawn-Blossoms/issues/16) | [Tools](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3ATools)
 
 [2017-04-11] [CSS禁止换行](https://github.com/varHarrie/Dawn-Blossoms/issues/15) | [Styles](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3AStyles)
 
