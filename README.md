@@ -2,7 +2,11 @@
 
 朝花夕拾，人生的智慧在于总结。
 
-> 最后更新时间：2017-5-10 14:43:35
+> 最后更新时间：2017-8-8 17:53:46
+
+[2017-08-07] [使用npm-link开发react组件库，遇到“have multiple copies of React loaded”的坑](https://github.com/varHarrie/Dawn-Blossoms/issues/19)
+
+[2017-07-20] [将node开发环境从linux迁移到win10 bash on linux](https://github.com/varHarrie/Dawn-Blossoms/issues/18) | [Javascript](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3AJavascript)  | [NPM](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3ANPM)
 
 [2017-05-10] [JS/Node相关中英文技术文档](https://github.com/varHarrie/Dawn-Blossoms/issues/17) | [Javascript](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3AJavascript)  | [Tools](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3ATools)
 
@@ -16,7 +20,7 @@
 
 [2017-02-21] [设置淘宝源的npm](https://github.com/varHarrie/Dawn-Blossoms/issues/11) | [NPM](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3ANPM)
 
-[2017-02-21] [VSCode拓展插件推荐——提高Node和Vue开发效率](https://github.com/varHarrie/Dawn-Blossoms/issues/10) | [Javascript](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3AJavascript)  | [Tools](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3ATools)  | [VSCode](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3AVSCode)  | [Vue](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3AVue)
+[2017-02-21] [VSCode拓展插件推荐（HTML、Node、Vue、React开发均适用）](https://github.com/varHarrie/Dawn-Blossoms/issues/10) | [Javascript](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3AJavascript)  | [Tools](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3ATools)  | [VSCode](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3AVSCode)  | [Vue](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3AVue)
 
 [2017-01-06] [DOM变动事件](https://github.com/varHarrie/Dawn-Blossoms/issues/9) | [Javascript](https://github.com/varHarrie/Dawn-Blossoms/issues?q=is%3Aissue+is%3Aopen+label%3AJavascript)
 
