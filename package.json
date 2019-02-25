@@ -1,0 +1,28 @@
+{
+  "name": "homepage",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "parcel index.html -p 80",
+    "dev": "parcel watch index.html -p 80",
+    "build": "parcel build index.html --public-url ./"
+  },
+  "keywords": [],
+  "author": "varharrie<varharrie@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "less": "^3.0.1",
+    "parcel-bundler": "^1.6.2",
+    "tslint": "^5.9.1",
+    "typescript": "^2.7.2"
+  },
+  "dependencies": {
+    "@types/history": "^4.6.2",
+    "github-markdown-css": "^2.10.0",
+    "history": "^4.7.2",
+    "preact": "^8.2.7",
+    "preact-router": "^2.6.0",
+    "whatwg-fetch": "^2.0.3"
+  }
+}

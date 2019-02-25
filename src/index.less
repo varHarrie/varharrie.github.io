@@ -1,0 +1,301 @@
+@blue: #55b5db;
+@yellow: #e6cd69;
+@green: #9fca56;
+@red: #cd3f45;
+@purple: #a074c4;
+@black: #666; // #151718;
+@black-light: fadeout(@black, 40%);
+@white: white;
+@gray: #eee;
+@font-family: 'Segoe UI', 'Consolas', 'monospace', 'Microsoft YaHei';
+@font-family2: 'Consolas', 'monospace', 'Microsoft YaHei';
+@radius: 4px;
+
+body {
+  margin: 0;
+  background: @white;
+  color: @black;
+  font-family: @font-family;
+  font-weight: lighter;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.3s;
+
+  &:hover {
+    color: @red;
+  }
+}
+
+.Blog {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 600px;
+
+  &__header {
+    margin-top: 50px;
+    text-align: center;
+  }
+
+  &__title {
+    font-size: 20px;
+  }
+
+  &__links {
+    padding: 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  &__link {
+    list-style: none;
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid @gray;
+    }
+  }
+
+  &__body {
+    margin-top: 50px;
+  }
+
+  &__footer {
+    margin-bottom: 100px;
+  }
+}
+
+.Articles {
+  &__items {
+    padding: 0;
+  }
+
+  &__item {
+    position: relative;
+    padding-left: 140px;
+    line-height: 80px;
+    list-style: none;
+    border-top: 1px dashed @gray;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    &-date {
+      position: absolute;
+      left: 0;
+      font-size: 14px;
+      color: @black-light;
+    }
+
+    &-title {
+      margin: 0;
+      font-size: 16px;
+      font-weight: normal;
+      word-break: keep-all;
+      white-space: nowrap;
+    }
+  }
+}
+
+.Article {
+  &__header {
+    padding: 30px 0;
+    margin-bottom: 30px;
+    border-bottom: 1px dashed @gray;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 32px;
+    font-weight: lighter;
+  }
+
+  &__details {
+    margin-top: 20px;
+    color: @black-light;
+    font-size: 14px;
+    overflow: hidden;
+  }
+
+  &__date {
+    float: left;
+  }
+
+  &__tags {
+    float: left;
+    margin-left: 20px;
+  }
+
+  &__tag {
+    &:not(:first-child) {
+      margin-left: 8px;
+      padding-left: 8px;
+      border-left: 1px solid @gray;
+    }
+  }
+  
+  &__comments {
+    float: right;
+  }
+
+  &__footer {
+    padding: 30px 0;
+    margin-top: 30px;
+    border-top: 1px dashed @gray;
+  }
+
+  &__reply {
+    padding: 10px;
+    text-align: center;
+    border-radius: @radius;
+    border: 1px solid @black-light;
+  }
+}
+
+.markdown-body {
+  color: @black;
+
+  pre {
+    font-family: @font-family2;
+  }
+
+  code {
+    font-family: @font-family2;
+  }
+}
+
+@keyframes rotating {
+  0% {
+    border-radius: 2px;
+    transform: rotate(0deg);
+  }
+  45% {
+    border-radius: 15px;
+    transform: rotate(-180deg);
+  }
+  55% {
+    border-radius: 15px;
+    transform: rotate(-180deg);
+  }
+  0% {
+    border-radius: 2px;
+    transform: rotate(-360deg);
+  }
+}
+
+.Loader {
+  margin: 100px 0;
+  width: 100%;
+  text-align: center;
+
+  &::before {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    box-sizing: border-box;
+    content: '';
+    border: 2px solid @black-light;
+    animation: rotating 1.5s ease-in-out infinite;
+  }
+}
+
+.Comment {
+  position: relative;
+  padding-left: 58px;
+
+  &:not(:first-child) {
+    margin-top: 30px;
+  }
+
+  &__header {
+    font-size: 14px;
+  }
+
+  &__avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: @radius;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+
+  &__user {
+    span {
+      margin-left: 8px;
+      padding: 1px @radius;
+      font-size: 12px;
+      color: @white;
+      background: @red;
+      border-radius: @radius;
+    }
+  }
+
+  &__date {
+    font-size: 12px;
+    color: @black-light;
+  }
+}
+
+.Pagination {
+  padding: 0;
+  text-align: center;
+
+  &__item {
+    list-style: none;
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    border-radius: @radius;
+
+    &:not(:first-child) {
+      margin-left: 8px;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &--active {
+      border: 1px solid @black-light;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .Articles {
+    &__item {
+      padding-left: 120px;
+      line-height: 60px;
+
+      &-title {
+        font-size: 14px;
+      }
+
+      &-date {
+        font-size: 12px;
+      }
+    }
+  }
+
+  .Article {
+    &__title {
+      font-size: 20px;
+    }
+
+    &__details {
+      font-size: 12px;
+    }
+  }
+}
