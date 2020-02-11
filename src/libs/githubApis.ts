@@ -45,7 +45,7 @@ export function getIssue(id: number) {
 }
 
 export function listIssues(page: number) {
-  const query = `q=state:open+repo:${config.repo}&sort=created&order=desc&page=${page}&per_page=${config.pageSize}`
+  const query = `q=state:open+repo:${config.repo}+author:${config.username}&sort=created&order=desc&page=${page}&per_page=${config.pageSize}`
 
   return fetch(
     `${base}/search/issues?${query}`,
