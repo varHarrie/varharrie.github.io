@@ -9,7 +9,7 @@
     "build": "parcel build index.html --public-url ./"
   },
   "keywords": [],
-  "author": "varharrie<varharrie@gmail.com>",
+  "author": "simplast<840004959@qq.com>",
   "license": "MIT",
   "devDependencies": {
     "less": "^3.0.1",
