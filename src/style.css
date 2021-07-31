@@ -1,0 +1,11 @@
+html {
+  font-family: 'Segoe UI', 'Consolas', 'monospace', 'Microsoft YaHei';
+  line-height: 1.5;
+  overflow-y: scroll;
+}
+
+body {
+  margin: 0;
+  font-family: inherit;
+  line-height: inherit;
+}
