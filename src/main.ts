@@ -4,13 +4,15 @@ import './style.css';
 import { createI18n } from 'vue-i18n';
 import { createRouter, createWebHistory } from 'vue-router';
 import { createApp } from 'vue';
-import App from './App.vue';
 
-const i18n = createI18n({ legacy: false, locale: 'cn' });
+import App from './App.vue';
+import routes from './routes';
+
+const i18n = createI18n({ legacy: false, locale: 'en' });
 
 const router = createRouter({
   history: createWebHistory(),
-  routes: [],
+  routes,
 });
 
 const app = createApp(App);

@@ -1,11 +1,15 @@
+@import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css);
+
 html {
-  font-family: 'Segoe UI', 'Consolas', 'monospace', 'Microsoft YaHei';
-  line-height: 1.5;
-  overflow-y: scroll;
+  @apply leading-normal overflow-y-scroll bg-white text-gray-800;
+  font-family: 'Fira Code VF', 'Segoe UI', 'Consolas', 'monospace', 'Microsoft YaHei';
+  font-variant-ligatures: normal;
+}
+
+html.dark {
+  @apply bg-dark-500 text-light-800;
 }
 
 body {
-  margin: 0;
-  font-family: inherit;
-  line-height: inherit;
+  @apply m-0;
 }
