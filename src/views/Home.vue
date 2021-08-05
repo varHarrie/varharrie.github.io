@@ -1,5 +1,5 @@
 <template>
-  <main w:p="x-10 y-20" w:text="center">
+  <main w:p="x-8 y-20" w:text="center">
     <h2 w:text="4xl gray-600 dark:gray-300" w:font="bold leading-15" v-html="t('intro.title')" />
 
     <p w:m="t-4" w:text="gray-300 dark:gray-600" v-html="t('intro.description')" />
@@ -15,7 +15,7 @@
         w:transition="all"
       >
         <span>{{ t('intro.checkOut') }}</span>
-        <icon-right w:m="l-2" w:text="middle" />
+        <icon-arrow-right w:m="l-2" w:text="middle" />
       </button>
     </router-link>
   </main>
@@ -24,7 +24,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 
-import IconRight from 'virtual:vite-icons/ri/arrow-right-line';
+import IconArrowRight from 'virtual:vite-icons/ri/arrow-right-line';
 
 const { t } = useI18n();
 </script>

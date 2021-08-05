@@ -17,14 +17,14 @@ function set(theme: ThemeMode) {
 }
 
 export default function useTheme(): [Ref<ThemeMode>, (theme: ThemeMode) => void] {
-  const themeRef = ref<ThemeMode>(get());
+  const theme = ref<ThemeMode>(get());
 
-  const setTheme = (theme: ThemeMode) => {
-    themeRef.value = theme;
-    set(theme);
+  const setTheme = (value: ThemeMode) => {
+    theme.value = value;
+    set(value);
   };
 
-  setTheme(themeRef.value);
+  setTheme(theme.value);
 
-  return [themeRef, setTheme];
+  return [theme, setTheme];
 }

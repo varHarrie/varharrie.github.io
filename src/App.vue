@@ -8,6 +8,7 @@
       w:h="22"
       w:align="items-center"
       w:text="gray-400"
+      w:bg="gray-50 dark:dark-500"
     >
       <router-link w:flex="1" :to="{ name: 'home' }">
         <h1 w:text="lg">
@@ -46,7 +47,7 @@
     </footer>
 
     <transition name="fade">
-      <spin v-if="loadingRef" w:pos="!absolute top-22 left-1/2" w:z="2" />
+      <spin v-if="loading" w:pos="!absolute top-22 left-1/2" w:z="2" />
     </transition>
   </div>
 </template>
@@ -55,7 +56,7 @@
 import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
-import IconArticles from 'virtual:vite-icons/ri/article-line';
+import IconPosts from 'virtual:vite-icons/ri/article-line';
 import IconSnippets from 'virtual:vite-icons/ri/sticky-note-line';
 import IconProjects from 'virtual:vite-icons/ri/function-line';
 import IconAbout from 'virtual:vite-icons/ri/account-pin-box-line';
@@ -74,16 +75,16 @@ const [theme, setTheme] = useTheme();
 const githubUrl = import.meta.env.VITE_GITHUB_URL;
 
 const tabs = [
-  { title: t('tab.posts'), to: { name: 'posts' }, icon: IconArticles },
+  { title: t('tab.posts'), to: { name: 'posts' }, icon: IconPosts },
   { title: t('tab.snippets'), to: { name: 'snippets' }, icon: IconSnippets },
   { title: t('tab.projects'), to: { name: 'projects' }, icon: IconProjects },
   { title: t('tab.about'), to: { name: 'about' }, icon: IconAbout },
 ];
 
-const loadingRef = ref(false);
+const loading = ref(false);
 
 const delaySetLoading = debounce((value: boolean) => {
-  loadingRef.value = value;
+  loading.value = value;
 }, 500);
 
 let cleanBefore: (() => void) | undefined;
@@ -91,7 +92,7 @@ let cleanAfter: (() => void) | undefined;
 
 onMounted(() => {
   cleanBefore = router.beforeEach(() => {
-    loadingRef.value = true;
+    loading.value = true;
   });
 
   cleanAfter = router.afterEach(() => {
