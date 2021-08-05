@@ -8,6 +8,7 @@
     "build": "vue-tsc --noEmit && vite build"
   },
   "dependencies": {
+    "date-fns": "^2.23.0",
     "vue": "^3.2.0-beta.7",
     "vue-i18n": "^9.1.7",
     "vue-router": "^4.0.10"

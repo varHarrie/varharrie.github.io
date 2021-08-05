@@ -10,3 +10,7 @@ export function debounce<T extends AnyFunction>(fn: T, ms: number): T {
 
   return handler as T;
 }
+
+export function clamp(value: number, min: number, max: number): number {
+  return Math.min(Math.max(value, min), max);
+}
