@@ -79,10 +79,10 @@ const [articlesLoading, loadArticles] = useHandling(async () => {
   articles.value = list.map(ArticleModel.from);
 }, true);
 
-watch([props, page, label], () => loadArticles(), { immediate: true });
+watch([props, label, page], () => loadArticles(), { immediate: true, flush: 'post' });
 
-const getArticleLink = (id: number) => ({ name: 'post', params: { id } });
-const getLabelLink = (label: string) => ({ name: 'posts', query: { label, page: 1 } });
+const getArticleLink = (id: number) => ({ path: route.path + '/' + id });
+const getLabelLink = (label: string) => ({ path: route.path, query: { label, page: 1 } });
 
 const onPageChange = (page: number) => router.push({ query: { page } });
 </script>
