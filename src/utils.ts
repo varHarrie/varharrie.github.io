@@ -14,3 +14,8 @@ export function debounce<T extends AnyFunction>(fn: T, ms: number): T {
 export function clamp(value: number, min: number, max: number): number {
   return Math.min(Math.max(value, min), max);
 }
+
+export function ensureArray<T>(target: T | T[]): T[] {
+  if (Array.isArray(target)) return target;
+  return target === undefined ? [] : [target];
+}

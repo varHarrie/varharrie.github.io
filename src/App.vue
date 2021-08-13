@@ -10,7 +10,7 @@
       w:text="gray-400"
       w:bg="gray-50 dark:dark-500"
     >
-      <router-link w:flex="1" :to="{ name: 'home' }">
+      <router-link :to="{ name: 'home' }">
         <h1 w:text="lg">
           <span w:text="xxl">&lt;</span>
           <span w:display="hidden lg:inline" w:m="x-0.5" w:text="blue-500">Harrie's Blog</span>
@@ -19,7 +19,7 @@
         </h1>
       </router-link>
 
-      <nav w:display="grid" w:grid="gap-3 lg:gap-5 flow-col" w:font="leading-5">
+      <nav w:m="l-auto" w:display="grid" w:grid="gap-3 lg:gap-5 flow-col" w:font="leading-5">
         <router-link v-for="(tab, index) of tabs" :key="index" :to="tab.to" class="tab">
           <component :is="tab.icon" w:display="inline lg:hidden" />
           <span w:display="hidden lg:inline">{{ tab.title }}</span>
@@ -28,8 +28,8 @@
           <icon-github />
         </a>
         <a href="javascript:void(0)" class="tab">
-          <icon-light v-if="theme === 'dark'" @click="setTheme('light')" />
-          <icon-dark v-else @click="setTheme('dark')" />
+          <icon-light v-if="theme.mode === 'dark'" @click="theme.setMode('light')" />
+          <icon-dark v-else @click="theme.setMode('dark')" />
         </a>
       </nav>
     </header>
@@ -46,9 +46,9 @@
       <span m="l-2">2021 © varHarrie</span>
     </footer>
 
-    <transition name="fade">
+    <fade-transition>
       <spin v-if="loading" w:pos="!absolute top-22 left-1/2" w:z="2" />
-    </transition>
+    </fade-transition>
   </div>
 </template>
 
@@ -65,12 +65,13 @@ import IconLight from 'virtual:vite-icons/ri/sun-line';
 import IconDark from 'virtual:vite-icons/ri/moon-line';
 
 import Spin from './components/Spin.vue';
+import FadeTransition from './components/FadeTransition.vue';
 import useTheme from './composition/use-theme';
 import { debounce } from './utils';
 
 const { t } = useI18n();
 const router = useRouter();
-const [theme, setTheme] = useTheme();
+const theme = useTheme();
 
 const githubUrl = import.meta.env.VITE_GITHUB_URL;
 
@@ -106,17 +107,7 @@ onMounted(() => {
 });
 </script>
 
-<style>
-.fade-enter-active,
-.fade-leave-active {
-  @apply opacity-100 transition-opacity duration-300 ease-out;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  @apply opacity-0;
-}
-
+<style scoped>
 .tab {
   @apply opacity-60 hover:opacity-100 hover:text-blue-500;
 }

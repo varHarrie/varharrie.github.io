@@ -1,6 +1,13 @@
-import { ref, Ref } from 'vue';
+import { InjectionKey, inject, provide, reactive } from 'vue';
 
 type ThemeMode = 'light' | 'dark';
+
+type ThemeContext = {
+  mode: ThemeMode;
+  setMode(mode: ThemeMode): void;
+};
+
+const ThemeInjectionKey: InjectionKey<ThemeContext> = Symbol();
 
 function get() {
   const theme = localStorage.getItem('theme');
@@ -16,15 +23,21 @@ function set(theme: ThemeMode) {
   document.documentElement.classList.toggle('dark', theme === 'dark');
 }
 
-export default function useTheme(): [Ref<ThemeMode>, (theme: ThemeMode) => void] {
-  const theme = ref<ThemeMode>(get());
+export default function useTheme(): ThemeContext {
+  let context = inject(ThemeInjectionKey);
+  if (context) return context;
 
-  const setTheme = (value: ThemeMode) => {
-    theme.value = value;
-    set(value);
-  };
+  context = reactive<ThemeContext>({
+    mode: get(),
+    setMode: (value: ThemeMode) => {
+      if (!context) return;
+      context.mode = value;
+      set(value);
+    },
+  });
 
-  setTheme(theme.value);
+  context.setMode(context.mode);
 
-  return [theme, setTheme];
+  provide(ThemeInjectionKey, context);
+  return context;
 }
