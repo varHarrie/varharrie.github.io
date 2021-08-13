@@ -1,4 +1,6 @@
-import { InjectionKey, inject, provide, reactive } from 'vue';
+import { reactive } from 'vue';
+import light from 'prism-themes/themes/prism-vs.css?raw';
+import dark from 'prism-themes/themes/prism-vsc-dark-plus.css?raw';
 
 type ThemeMode = 'light' | 'dark';
 
@@ -7,7 +9,7 @@ type ThemeContext = {
   setMode(mode: ThemeMode): void;
 };
 
-const ThemeInjectionKey: InjectionKey<ThemeContext> = Symbol();
+const codeBlockThemes = { light, dark };
 
 function get() {
   const theme = localStorage.getItem('theme');
@@ -18,26 +20,35 @@ function get() {
     : 'light';
 }
 
-function set(theme: ThemeMode) {
+async function set(theme: ThemeMode) {
   localStorage.setItem('theme', theme);
   document.documentElement.classList.toggle('dark', theme === 'dark');
+
+  const existed = document.getElementById('editor-theme');
+  if (existed) existed.remove();
+
+  const module = await import(
+    /* @vite-ignore */
+    'data:text/javascript;charset=utf-8,' + encodeURIComponent(codeBlockThemes[context.mode])
+  );
+
+  const style = document.createElement('style');
+  style.setAttribute('id', 'editor-theme');
+  style.setAttribute('mode', context.mode);
+  style.textContent = module.default;
+  document.head.appendChild(style);
 }
 
+const context = reactive<ThemeContext>({
+  mode: get(),
+  setMode: (value: ThemeMode) => {
+    context.mode = value;
+    set(value);
+  },
+});
+
+context.setMode(context.mode);
+
 export default function useTheme(): ThemeContext {
-  let context = inject(ThemeInjectionKey);
-  if (context) return context;
-
-  context = reactive<ThemeContext>({
-    mode: get(),
-    setMode: (value: ThemeMode) => {
-      if (!context) return;
-      context.mode = value;
-      set(value);
-    },
-  });
-
-  context.setMode(context.mode);
-
-  provide(ThemeInjectionKey, context);
   return context;
 }

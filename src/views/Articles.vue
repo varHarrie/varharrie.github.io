@@ -1,14 +1,10 @@
 <template>
   <main w:p="x-8 y-12">
-    <template v-if="category">
-      <h2 w:text="2xl gray-500">
-        {{ t(category.title) }}
-      </h2>
+    <h2 v-if="category" w:text="2xl gray-500">
+      {{ t(category.title) }}
+    </h2>
 
-      <p v-if="category.description">
-        {{ category.description }}
-      </p>
-    </template>
+    <div v-else class="skeleton" w:h="!8" w:w="24" />
 
     <ul v-if="articlesLoading" w:m="t-8">
       <article-ghost-item v-for="i of 8" :key="i" />

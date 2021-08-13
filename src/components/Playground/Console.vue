@@ -2,7 +2,7 @@
   <ul class="list">
     <li v-for="(log, i) of logs" :key="i" class="item" :class="log.level">
       <component :is="levelToIcon[log.level]" class="icon" />
-      <p>
+      <p class="content">
         <span v-for="(msg, j) of log.message" :key="j">
           {{ msg }}
         </span>
@@ -36,7 +36,7 @@ const levelToIcon = {
 
 <style scoped>
 .list {
-  @apply w-full h-full overflow-auto;
+  @apply m-0 p-0 w-full h-full overflow-auto leading-4 text-sm;
 }
 
 .list::-webkit-scrollbar {
@@ -53,6 +53,10 @@ const levelToIcon = {
 
 .item .icon {
   @apply mr-1 opacity-80 text-sm;
+}
+
+.item .content {
+  @apply m-0;
 }
 
 .item.info {

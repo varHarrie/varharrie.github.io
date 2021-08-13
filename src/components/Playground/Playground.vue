@@ -17,7 +17,7 @@
       w:text="gray-600 dark:gray-400 sm"
     >
       <icon-code />
-      <h3 w:m="l-2" w:flex="1" w:w="min-0">{{ title }}</h3>
+      <div w:m="l-2" w:flex="1" w:w="min-0">{{ title }}</div>
       <span w:m="l-auto" w:cursor="pointer" w:font="leading-0" title="copy" @click="onCopy">
         <fade-transition>
           <icon-check v-if="copied" w:text="green-500" />

@@ -1,6 +1,6 @@
 <template>
   <div w:display="flex" w:flex="col" w:w="full" w:h="full">
-    <ul w:display="flex" w:align="items-center">
+    <ul w:p="!0" w:m="!0" w:display="flex" w:align="items-center">
       <li
         v-for="tab of context.panes"
         :key="tab.id"

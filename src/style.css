@@ -1,8 +1,7 @@
 @import url(https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css);
 
 html {
-  @apply leading-normal overflow-y-scroll bg-gray-50 text-gray-800;
-  font-family: 'Fira Code VF', 'Segoe UI', 'Consolas', 'monospace', 'Microsoft YaHei';
+  @apply leading-normal overflow-y-scroll bg-gray-50 text-gray-800 font-base;
   font-variant-ligatures: normal;
 }
 
@@ -12,4 +11,8 @@ html.dark {
 
 body {
   @apply m-0;
+}
+
+.skeleton {
+  @apply h-6 rounded bg-gray-200 dark:bg-gray-700 animate-pulse;
 }
