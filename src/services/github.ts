@@ -80,10 +80,12 @@ export type Label = {
 
 export type Comment = {
   id: number;
-  body_html: string;
+  body: string;
   html_url: string;
+  author_association: string;
   created_at: string;
   updated_at: string;
+  user: User;
 };
 
 class Github {
