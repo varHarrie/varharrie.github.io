@@ -13,6 +13,10 @@ body {
   @apply m-0;
 }
 
-.skeleton {
-  @apply h-6 rounded bg-gray-200 dark:bg-gray-700 animate-pulse;
+*::-webkit-scrollbar {
+  @apply w-2;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-light-800 dark:bg-dark-100;
 }

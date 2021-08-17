@@ -39,14 +39,6 @@ const levelToIcon = {
   @apply m-0 p-0 w-full h-full overflow-auto leading-4 text-sm;
 }
 
-.list::-webkit-scrollbar {
-  @apply w-2;
-}
-
-.list::-webkit-scrollbar-thumb {
-  @apply bg-light-800 dark:bg-dark-100;
-}
-
 .item {
   @apply p-1 flex items-center text-gray-600 dark:text-gray-400 border-b-1 border-light-500 dark:border-dark-300 border-solid;
 }

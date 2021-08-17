@@ -11,6 +11,7 @@ import MarkdownIt from 'markdown-it';
 import Playground from '~/components/Playground/Playground.vue';
 
 export type MarkdownHtmlProps = {
+  playground?: boolean;
   markdown: string;
 };
 
@@ -24,11 +25,15 @@ const parseArgs = (raw: string): Record<string, string> => {
     args[matched[1]] = matched[2];
   }
 
+  const [lang] = raw.split(' ', 1);
+  if (lang) args['lang'] = lang;
+
   return args;
 };
 
 const highlight = (text: string, lang: string) => {
-  return Prism.highlight(text, Prism.languages[lang], lang);
+  const grammar = Prism.languages[lang] ?? Prism.languages.plain;
+  return Prism.highlight(text, grammar, lang);
 };
 
 const container = ref<HTMLDivElement>();
@@ -45,14 +50,14 @@ const toHtml = (markdown: string) => {
     const { content, info } = tokens[idx];
     const args = parseArgs(info);
 
-    if (args.playground) {
+    if (props.playground && args.playground) {
       const el = document.createElement('div');
 
       Object.assign(el.dataset, {
         playground: 'true',
         title: args.playground,
         env: args.playground,
-        language: 'html', // TODO:
+        language: args.lang,
         defaultValue: content,
       });
 
@@ -98,6 +103,6 @@ onMounted(() => {
 }
 
 .markdown-body pre {
-  @apply bg-white dark:bg-dark-600;
+  @apply bg-white dark:bg-dark-600 shadow-md shadow-dark-50;
 }
 </style>

@@ -36,7 +36,8 @@ const emit = defineEmits<EditorEmits>();
 const highlighted = ref('');
 
 const highlight = () => {
-  highlighted.value = Prism.highlight(props.value, Prism.languages[props.language], props.language);
+  const grammar = Prism.languages[props.language] ?? Prism.languages.plain;
+  highlighted.value = Prism.highlight(props.value, grammar, props.language);
 };
 
 watch([() => props.value, () => props.value], highlight, { immediate: true });
@@ -51,14 +52,6 @@ const onChange = (e: Event) => {
 <style scopped>
 .editor {
   @apply p-4 block h-full overflow-auto;
-}
-
-.editor::-webkit-scrollbar {
-  @apply w-2;
-}
-
-.editor::-webkit-scrollbar-thumb {
-  @apply bg-light-800 dark:bg-dark-100;
 }
 
 .code,
