@@ -21,3 +21,5 @@ app.use(i18n);
 app.use(router);
 
 app.mount('body');
+
+document.title = import.meta.env.VITE_APP_TITLE;

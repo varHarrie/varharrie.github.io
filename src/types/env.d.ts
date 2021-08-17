@@ -1,4 +1,5 @@
 interface ImportMetaEnv {
+  VITE_APP_TITLE: string;
   VITE_GITHUB_URL: string;
   VITE_GITHUB_ACCESS_TOKEN: string;
   VITE_GITHUB_OWNER: string;
