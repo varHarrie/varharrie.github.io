@@ -8,7 +8,7 @@
     "build": "vue-tsc --noEmit && vite build"
   },
   "dependencies": {
-    "@types/markdown-it": "^12.0.3",
+    "@types/markdown-it": "^12.2.0",
     "@types/prismjs": "^1.16.6",
     "copy-to-clipboard": "^3.3.1",
     "date-fns": "^2.23.0",
@@ -37,7 +37,7 @@
     "vite": "^2.4.4",
     "vite-plugin-icons": "^0.6.5",
     "vite-plugin-windicss": "^1.2.7",
-    "vue-tsc": "^0.2.2",
+    "vue-tsc": "^0.2.3",
     "windicss": "^3.1.7"
   }
 }
