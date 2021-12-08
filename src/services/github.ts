@@ -1,18 +1,31 @@
-enum Sort {
+export enum Sort {
   Created = 'created',
   Updated = 'updated',
   Comments = 'comments',
 }
 
-enum State {
+export enum State {
   All = 'all',
   Open = 'open',
   Closed = 'closed',
 }
 
-enum Direction {
+export enum Direction {
   Asc = 'asc',
   Desc = 'desc',
+}
+
+export enum RepositorySort {
+  Created = 'created',
+  Updated = 'updated',
+  Pushed = 'pushed',
+  FullName = 'full_name',
+}
+
+export enum RepositoryType {
+  All = 'all',
+  Owner = 'owner',
+  Member = 'member',
 }
 
 export type ListMilestonesOptions = {
@@ -36,6 +49,14 @@ export type ListIssuesOptions = {
 export type ListCommentsOptions = {
   issue: number;
   sort?: Sort;
+  direction?: Direction;
+  page?: number;
+  pageSize?: number;
+};
+
+export type ListRepositoriesOptions = {
+  type?: RepositoryType;
+  sort?: RepositorySort;
   direction?: Direction;
   page?: number;
   pageSize?: number;
@@ -86,6 +107,24 @@ export type Comment = {
   created_at: string;
   updated_at: string;
   user: User;
+};
+
+export type Repository = {
+  id: number;
+  owner: User;
+  full_name: string;
+  name: string;
+  html_url: string;
+  description: string;
+  language: string;
+  forks_count: number;
+  stargazers_count: number;
+  open_issues_count: number;
+  archived: boolean;
+  disabled: boolean;
+  pushed_at: string;
+  created_at: string;
+  updated_at: string;
 };
 
 class Github {
@@ -161,6 +200,12 @@ class Github {
     const query = { sort, direction, page, per_page: pageSize };
 
     return this.request('GET', `/repos/${this.owner}/${this.repo}/issues/${issue}/comments`, query);
+  }
+
+  public listRepositories(options: ListRepositoriesOptions): Promise<Repository[]> {
+    const { type, sort, direction, page, pageSize } = options;
+    const query = { type, sort, direction, page, per_page: pageSize };
+    return this.request('GET', `/users/${this.owner}/repos`, query);
   }
 }
 
