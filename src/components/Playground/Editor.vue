@@ -16,8 +16,8 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue';
 import Prism from 'prismjs';
+import { ref, watch } from 'vue';
 
 export type EditorProps = {
   value: string;

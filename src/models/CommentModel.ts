@@ -1,4 +1,5 @@
 import { Comment } from '~/services/github';
+
 import UserModel from './UserModel';
 
 export default class CommentModel {

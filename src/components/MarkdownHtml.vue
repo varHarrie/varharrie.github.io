@@ -5,9 +5,10 @@
 <script lang="ts" setup>
 import 'github-markdown-css/github-markdown.css';
 
-import { ref, nextTick, watch, onMounted, createApp, App } from 'vue';
-import Prism from 'prismjs';
 import MarkdownIt from 'markdown-it';
+import Prism from 'prismjs';
+import { App, createApp, nextTick, onMounted, ref, watch } from 'vue';
+
 import Playground from '~/components/Playground/Playground.vue';
 
 export type MarkdownHtmlProps = {

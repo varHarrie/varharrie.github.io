@@ -1,9 +1,9 @@
 import 'virtual:windi.css';
 import './style.css';
 
+import { createApp } from 'vue';
 import { createI18n } from 'vue-i18n';
 import { createRouter, createWebHistory } from 'vue-router';
-import { createApp } from 'vue';
 
 import App from './App.vue';
 import routes from './routes';

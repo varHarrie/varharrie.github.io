@@ -53,13 +53,14 @@
 
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
-import IconPosts from 'virtual:vite-icons/ri/article-line';
-import IconSnippets from 'virtual:vite-icons/ri/sticky-note-line';
-import IconProjects from 'virtual:vite-icons/ri/function-line';
-import IconEmail from 'virtual:vite-icons/ri/mail-line';
-import IconGithub from 'virtual:vite-icons/ri/github-line';
-import IconLight from 'virtual:vite-icons/ri/sun-line';
-import IconDark from 'virtual:vite-icons/ri/moon-line';
+
+import IconPosts from '~icons/ri/article-line';
+import IconProjects from '~icons/ri/function-line';
+import IconGithub from '~icons/ri/github-line';
+import IconEmail from '~icons/ri/mail-line';
+import IconDark from '~icons/ri/moon-line';
+import IconSnippets from '~icons/ri/sticky-note-line';
+import IconLight from '~icons/ri/sun-line';
 
 import useTheme from './composition/use-theme';
 

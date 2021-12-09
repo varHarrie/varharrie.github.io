@@ -68,20 +68,20 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watch, nextTick } from 'vue';
-import { useRoute, useRouter } from 'vue-router';
 import { format } from 'date-fns';
-import IconComments from 'virtual:vite-icons/ri/chat-2-line';
+import { computed, nextTick, ref, watch } from 'vue';
+import { useRoute, useRouter } from 'vue-router';
 
-import github from '~/services/github';
-import ArticleModel from '~/models/ArticleModel';
-import CommentModel from '~/models/CommentModel';
-import useHandling from '~/composition/use-handling';
-import MarkdownHtml from '~/components/MarkdownHtml.vue';
-import Pagination from '~/components/Pagination.vue';
 import CommentGhostItem from '~/components/CommentGhostItem.vue';
 import CommentItem from '~/components/CommentItem.vue';
 import LabelItem from '~/components/LabelItem.vue';
+import MarkdownHtml from '~/components/MarkdownHtml.vue';
+import Pagination from '~/components/Pagination.vue';
+import useHandling from '~/composition/use-handling';
+import ArticleModel from '~/models/ArticleModel';
+import CommentModel from '~/models/CommentModel';
+import github from '~/services/github';
+import IconComments from '~icons/ri/chat-2-line';
 
 const route = useRoute();
 const router = useRouter();

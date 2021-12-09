@@ -38,19 +38,20 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
 import type { Component } from 'vue';
-import IconDefault from 'virtual:vite-icons/ri/code-s-slash-line';
-import IconTs from 'virtual:vite-icons/teenyicons/typescript-outline';
-import IconJs from 'virtual:vite-icons/teenyicons/javascript-outline';
-import IconHtml from 'virtual:vite-icons/ri/html5-line';
-import IconCss from 'virtual:vite-icons/ri/css3-line';
-import IconVue from 'virtual:vite-icons/ri/vuejs-line';
-import IconCS from 'virtual:vite-icons/vscode-icons/file-type-csharp';
-import IconStar from 'virtual:vite-icons/octicon/star-16';
-import IconForked from 'virtual:vite-icons/octicon/repo-forked-16';
-import IconIssue from 'virtual:vite-icons/octicon/issue-opened-16';
+import { computed } from 'vue';
+
 import ProjectModel from '~/models/ProjectModel';
+import IconIssue from '~icons/octicon/issue-opened-16';
+import IconForked from '~icons/octicon/repo-forked-16';
+import IconStar from '~icons/octicon/star-16';
+import IconDefault from '~icons/ri/code-s-slash-line';
+import IconCss from '~icons/ri/css3-line';
+import IconHtml from '~icons/ri/html5-line';
+import IconVue from '~icons/ri/vuejs-line';
+import IconJs from '~icons/teenyicons/javascript-outline';
+import IconTs from '~icons/teenyicons/typescript-outline';
+import IconCS from '~icons/vscode-icons/file-type-csharp';
 
 type IconDetail = {
   component: Component;

@@ -1,4 +1,5 @@
 import { Issue } from '~/services/github';
+
 import LabelModel from './LabelModel';
 
 export default class ArticleModel {

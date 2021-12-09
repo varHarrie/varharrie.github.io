@@ -52,19 +52,20 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
 import copy from 'copy-to-clipboard';
-import IconCode from 'virtual:vite-icons/ri/code-s-slash-line';
-import IconCheck from 'virtual:vite-icons/ri/checkbox-circle-fill';
-import IconCopy from 'virtual:vite-icons/ri/file-copy-2-line';
+import { ref } from 'vue';
 
-import useControlledRef from '~/composition/use-controlled-ref';
 import FadeTransition from '~/components/FadeTransition.vue';
-import Tabs from './Tabs.vue';
-import TabPane from './TabPane.vue';
+import useControlledRef from '~/composition/use-controlled-ref';
+import IconCheck from '~icons/ri/checkbox-circle-fill';
+import IconCode from '~icons/ri/code-s-slash-line';
+import IconCopy from '~icons/ri/file-copy-2-line';
+
+import Console from './Console.vue';
 import Editor from './Editor.vue';
 import Preview from './Preview.vue';
-import Console from './Console.vue';
+import TabPane from './TabPane.vue';
+import Tabs from './Tabs.vue';
 import type { LogRecord } from './types';
 
 export type PlaygroundProps = {

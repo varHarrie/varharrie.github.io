@@ -6,6 +6,7 @@
 
 <script lang="ts" setup>
 import { computed, inject, onUnmounted, watch } from 'vue';
+
 import { TabsInjectionKey } from './tab-context';
 
 export type TabPaneProps = {

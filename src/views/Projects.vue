@@ -17,10 +17,11 @@
 <script lang="ts" setup>
 import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
+
+import ProjectItem from '~/components/ProjectItem.vue';
+import useHandling from '~/composition/use-handling';
 import ProjectModel from '~/models/ProjectModel';
 import github, { Direction, RepositorySort, RepositoryType } from '~/services/github';
-import useHandling from '~/composition/use-handling';
-import ProjectItem from '~/components/ProjectItem.vue';
 
 const { t } = useI18n();
 

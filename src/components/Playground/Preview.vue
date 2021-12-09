@@ -3,11 +3,13 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, onMounted, watch, onUnmounted } from 'vue';
+import { onMounted, onUnmounted, ref, watch } from 'vue';
+
 import { ensureArray } from '~/utils';
+
+import type { SandboxInstance } from './sandbox/Sandbox';
 import DefaultSandbox from './sandbox/Sandbox';
 import VueSfcSandbox from './sandbox/VueSfcSandbox';
-import type { SandboxInstance } from './sandbox/Sandbox';
 import type { LogRecord } from './types';
 
 const sandboxes: Record<string, SandboxInstance> = {
@@ -27,7 +29,7 @@ export type PreviewEmits = {
 const props = defineProps<PreviewProps>();
 const emit = defineEmits<PreviewEmits>();
 
-const Sandbox: SandboxInstance = sandboxes[props.env];
+const Sandbox: SandboxInstance = sandboxes[props.env] || sandboxes.html;
 
 const container = ref<HTMLDivElement>();
 const sandbox = new Sandbox();

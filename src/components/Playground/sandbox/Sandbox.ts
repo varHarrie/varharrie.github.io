@@ -1,4 +1,5 @@
 import { ensureArray } from '~/utils';
+
 import template from './template.html?raw';
 
 export type Imports = Record<string, string>;

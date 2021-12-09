@@ -19,8 +19,9 @@
 
 <script lang="ts" setup>
 import { computed, provide, reactive } from 'vue';
-import { TabsInjectionKey } from './tab-context';
+
 import type { TabsContext } from './tab-context';
+import { TabsInjectionKey } from './tab-context';
 
 export type TabsProps = {
   activeId?: string;

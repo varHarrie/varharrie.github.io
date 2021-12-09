@@ -24,7 +24,7 @@
 <script lang="ts" setup>
 import { useI18n } from 'vue-i18n';
 
-import IconArrowRight from 'virtual:vite-icons/ri/arrow-right-line';
+import IconArrowRight from '~icons/ri/arrow-right-line';
 
 const { t } = useI18n();
 </script>

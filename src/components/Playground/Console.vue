@@ -12,10 +12,10 @@
 </template>
 
 <script lang="ts" setup>
-import IconRight from 'virtual:vite-icons/ri/arrow-right-s-line';
-import IconWarning from 'virtual:vite-icons/ri/error-warning-fill';
-import IconError from 'virtual:vite-icons/ri/close-circle-fill';
-import IconFatal from 'virtual:vite-icons/ri/bug-fill';
+import IconRight from '~icons/ri/arrow-right-s-line';
+import IconFatal from '~icons/ri/bug-fill';
+import IconError from '~icons/ri/close-circle-fill';
+import IconWarning from '~icons/ri/error-warning-fill';
 
 import type { LogRecord } from './types';
 

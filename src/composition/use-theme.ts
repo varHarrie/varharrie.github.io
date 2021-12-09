@@ -1,6 +1,6 @@
-import { reactive } from 'vue';
 import light from 'prism-themes/themes/prism-vs.css?raw';
 import dark from 'prism-themes/themes/prism-vsc-dark-plus.css?raw';
+import { reactive } from 'vue';
 
 type ThemeMode = 'light' | 'dark';
 

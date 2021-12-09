@@ -35,11 +35,12 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue';
 import { format } from 'date-fns';
-import IconComments from 'virtual:vite-icons/ri/chat-2-line';
+import { computed } from 'vue';
 
 import ArticleModel from '~/models/ArticleModel';
+import IconComments from '~icons/ri/chat-2-line';
+
 import LabelItem from './LabelItem.vue';
 
 export type ArticleItemProps = {

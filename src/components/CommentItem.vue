@@ -32,7 +32,9 @@
 <script lang="ts" setup>
 import { format } from 'date-fns';
 import { useI18n } from 'vue-i18n';
+
 import CommentModel from '~/models/CommentModel';
+
 import MarkdownHtml from './MarkdownHtml.vue';
 
 export type CommentItemProps = {

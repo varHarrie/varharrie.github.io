@@ -8,9 +8,10 @@
 
 <script lang="ts" setup>
 import { computed } from '@vue/reactivity';
-import IconArrowLeft from 'virtual:vite-icons/ri/arrow-left-s-line';
-import IconArrowRight from 'virtual:vite-icons/ri/arrow-right-s-line';
+
 import { clamp } from '~/utils';
+import IconArrowLeft from '~icons/ri/arrow-left-s-line';
+import IconArrowRight from '~icons/ri/arrow-right-s-line';
 
 const RADIUS = 2;
 const RANGE = 2 * RADIUS;
