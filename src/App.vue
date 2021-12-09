@@ -8,14 +8,14 @@
       w:h="22"
       w:align="items-center"
       w:text="gray-400"
-      w:bg="gray-50 dark:dark-500"
+      w:bg="opacity-80 gray-50 dark:dark-500"
+      w:backdrop="filter blur-sm saturate-150"
     >
       <router-link :to="{ name: 'home' }">
         <h1 w:text="lg">
-          <span w:text="xxl">&lt;</span>
-          <span w:display="hidden lg:inline" w:m="x-0.5" w:text="blue-500">Harrie's Blog</span>
-          <span w:display="inline lg:hidden" w:m="x-0.5" w:text="blue-500">H</span>
-          <span w:text="xxl">/&gt;</span>
+          <span>{</span>
+          <span w:m="x-0.5" w:text="blue-500">{{ title }}</span>
+          <span>}</span>
         </h1>
       </router-link>
 
@@ -24,6 +24,9 @@
           <component :is="tab.icon" w:display="inline lg:hidden" />
           <span w:display="hidden lg:inline">{{ tab.title }}</span>
         </router-link>
+        <a :href="`mailto:${email}`" class="tab">
+          <icon-email />
+        </a>
         <a :href="githubUrl" target="_blank" class="tab">
           <icon-github />
         </a>
@@ -45,33 +48,26 @@
       <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a>
       <span m="l-2">2021 © varHarrie</span>
     </footer>
-
-    <fade-transition>
-      <spin v-if="loading" w:pos="!absolute top-22 left-1/2" w:z="2" />
-    </fade-transition>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useRouter } from 'vue-router';
 import IconPosts from 'virtual:vite-icons/ri/article-line';
 import IconSnippets from 'virtual:vite-icons/ri/sticky-note-line';
 import IconProjects from 'virtual:vite-icons/ri/function-line';
+import IconEmail from 'virtual:vite-icons/ri/mail-line';
 import IconGithub from 'virtual:vite-icons/ri/github-line';
 import IconLight from 'virtual:vite-icons/ri/sun-line';
 import IconDark from 'virtual:vite-icons/ri/moon-line';
 
-import Spin from './components/Spin.vue';
-import FadeTransition from './components/FadeTransition.vue';
 import useTheme from './composition/use-theme';
-import { debounce } from './utils';
 
 const { t } = useI18n();
-const router = useRouter();
 const theme = useTheme();
 
+const title = import.meta.env.VITE_TITLE;
+const email = import.meta.env.VITE_EMAIL;
 const githubUrl = import.meta.env.VITE_GITHUB_URL;
 
 const tabs = [
@@ -79,30 +75,6 @@ const tabs = [
   { title: t('tab.snippets'), to: { name: 'snippets' }, icon: IconSnippets },
   { title: t('tab.projects'), to: { name: 'projects' }, icon: IconProjects },
 ];
-
-const loading = ref(false);
-
-const delaySetLoading = debounce((value: boolean) => {
-  loading.value = value;
-}, 500);
-
-let cleanBefore: (() => void) | undefined;
-let cleanAfter: (() => void) | undefined;
-
-onMounted(() => {
-  cleanBefore = router.beforeEach(() => {
-    loading.value = true;
-  });
-
-  cleanAfter = router.afterEach(() => {
-    delaySetLoading(false);
-  });
-
-  return () => {
-    cleanBefore?.();
-    cleanAfter?.();
-  };
-});
 </script>
 
 <style scoped>
