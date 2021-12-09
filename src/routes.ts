@@ -26,7 +26,6 @@ const routes: RouteRecordRaw[] = [
     ],
   },
   { path: '/projects', name: 'projects', component: () => import('./views/Projects.vue') },
-  { path: '/about', name: 'about', component: () => import('./views/About.vue') },
 ];
 
 export default routes;

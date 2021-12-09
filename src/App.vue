@@ -59,7 +59,6 @@ import { useRouter } from 'vue-router';
 import IconPosts from 'virtual:vite-icons/ri/article-line';
 import IconSnippets from 'virtual:vite-icons/ri/sticky-note-line';
 import IconProjects from 'virtual:vite-icons/ri/function-line';
-import IconAbout from 'virtual:vite-icons/ri/account-pin-box-line';
 import IconGithub from 'virtual:vite-icons/ri/github-line';
 import IconLight from 'virtual:vite-icons/ri/sun-line';
 import IconDark from 'virtual:vite-icons/ri/moon-line';
@@ -79,7 +78,6 @@ const tabs = [
   { title: t('tab.posts'), to: { name: 'posts' }, icon: IconPosts },
   { title: t('tab.snippets'), to: { name: 'snippets' }, icon: IconSnippets },
   { title: t('tab.projects'), to: { name: 'projects' }, icon: IconProjects },
-  { title: t('tab.about'), to: { name: 'about' }, icon: IconAbout },
 ];
 
 const loading = ref(false);
@@ -122,8 +120,7 @@ onMounted(() => {
   "tab": {
     "posts": "文章",
     "snippets": "代码片段",
-    "projects": "项目",
-    "about": "关于"
+    "projects": "项目"
   }
 }
 </i18n>
@@ -133,8 +130,7 @@ onMounted(() => {
   "tab": {
     "posts": "Posts",
     "snippets": "Snippets",
-    "projects": "Projects",
-    "about": "About"
+    "projects": "Projects"
   }
 }
 </i18n>
