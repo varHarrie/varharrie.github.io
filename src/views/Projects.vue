@@ -4,8 +4,8 @@
       {{ t('title') }}
     </h2>
 
-    <ul v-if="projectLoading" w:m="t-8">
-      <repository-ghost-item v-for="i of 10" :key="i" />
+    <ul v-if="projectLoading" w:m="t-8" w:display="grid" w:grid="cols-1 lg:cols-2 gap-2">
+      <project-ghost-item v-for="i of 10" :key="i" />
     </ul>
 
     <ul v-else w:m="t-8" w:display="grid" w:grid="cols-1 lg:cols-2 gap-2">
@@ -18,6 +18,7 @@
 import { onMounted, ref } from 'vue';
 import { useI18n } from 'vue-i18n';
 
+import ProjectGhostItem from '~/components/ProjectGhostItem.vue';
 import ProjectItem from '~/components/ProjectItem.vue';
 import useHandling from '~/composition/use-handling';
 import ProjectModel from '~/models/ProjectModel';
