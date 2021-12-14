@@ -47,8 +47,22 @@
       </template>
     </article>
 
-    <section>
-      <h2></h2>
+    <section w:m="t-8">
+      <h2 w:text="2xl gray-700 dark:gray-300">{{ t('comment.title') }}</h2>
+      <a
+        w:m="t-4"
+        w:display="block"
+        w:w="full"
+        w:h="10"
+        w:font="leading-10"
+        w:border="1 rounded-sm gray-400"
+        w:text="gray-400 center"
+        w:cursor="pointer"
+        w:outline="none focus:none"
+        :href="commentUrl"
+      >
+        {{ t('comment.goto') }}
+      </a>
       <ul v-if="commentsLoading">
         <comment-ghost-item v-for="i of 5" :key="i" />
       </ul>
@@ -70,6 +84,7 @@
 <script lang="ts" setup>
 import { format } from 'date-fns';
 import { computed, nextTick, ref, watch } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useRoute, useRouter } from 'vue-router';
 
 import CommentGhostItem from '~/components/CommentGhostItem.vue';
@@ -85,6 +100,7 @@ import IconComments from '~icons/ri/chat-2-line';
 
 const route = useRoute();
 const router = useRouter();
+const { t } = useI18n();
 
 const id = computed(() => parseInt(route.params.id as string, 10) || 0);
 const page = computed(() => parseInt(route.query.page as string, 10) || 1);
@@ -92,6 +108,10 @@ const pageSize = ref(30);
 
 const article = ref<ArticleModel>();
 const comments = ref<CommentModel[]>([]);
+
+const commentUrl = computed(() => {
+  return article.value?.htmlUrl + '#new_comment_field';
+});
 
 const total = computed(() => article.value?.comments ?? 0);
 
@@ -127,3 +147,21 @@ watch(commentsLoading, async () => {
   }
 });
 </script>
+
+<i18n lang="json" locale="cn">
+{
+  "comment": {
+    "title": "评论",
+    "goto": "点击评论"
+  }
+}
+</i18n>
+
+<i18n lang="json" locale="en">
+{
+  "comment": {
+    "title": "Comments",
+    "goto": "Click to Comment"
+  }
+}
+</i18n>
