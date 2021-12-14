@@ -30,6 +30,9 @@
         <a :href="githubUrl" target="_blank" class="tab">
           <icon-github />
         </a>
+        <a href="javascript:void(0)" class="tab" @click="onToggleLanguage">
+          <icon-language />
+        </a>
         <a href="javascript:void(0)" class="tab">
           <icon-light v-if="theme.mode === 'dark'" @click="theme.setMode('light')" />
           <icon-dark v-else @click="theme.setMode('dark')" />
@@ -52,11 +55,13 @@
 </template>
 
 <script lang="ts" setup>
+import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 import IconPosts from '~icons/ri/article-line';
 import IconProjects from '~icons/ri/function-line';
 import IconGithub from '~icons/ri/github-line';
+import IconLanguage from '~icons/ri/global-line';
 import IconEmail from '~icons/ri/mail-line';
 import IconDark from '~icons/ri/moon-line';
 import IconSnippets from '~icons/ri/sticky-note-line';
@@ -65,17 +70,22 @@ import IconLight from '~icons/ri/sun-line';
 import useTheme from './composition/use-theme';
 
 const { t } = useI18n();
+const { locale } = useI18n({ useScope: 'global' });
 const theme = useTheme();
 
 const title = import.meta.env.VITE_TITLE;
 const email = import.meta.env.VITE_EMAIL;
 const githubUrl = import.meta.env.VITE_GITHUB_URL;
 
-const tabs = [
+const tabs = computed(() => [
   { title: t('tab.posts'), to: { name: 'posts' }, icon: IconPosts },
   { title: t('tab.snippets'), to: { name: 'snippets' }, icon: IconSnippets },
   { title: t('tab.projects'), to: { name: 'projects' }, icon: IconProjects },
-];
+]);
+
+const onToggleLanguage = () => {
+  locale.value = locale.value === 'cn' ? 'en' : 'cn';
+};
 </script>
 
 <style scoped>
