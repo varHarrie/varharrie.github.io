@@ -37,6 +37,7 @@
 <script lang="ts" setup>
 import { format } from 'date-fns';
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 
 import ArticleModel from '~/models/ArticleModel';
 import IconComments from '~icons/ri/chat-2-line';
@@ -51,5 +52,18 @@ export type ArticleItemProps = {
 
 const props = defineProps<ArticleItemProps>();
 
-const createdAt = computed(() => format(new Date(props.article.createdAt), 'dd/ MM / yyyy'));
+const { t } = useI18n();
+const createdAt = computed(() => format(new Date(props.article.createdAt), t('format')));
 </script>
+
+<i18n lang="json" locale="cn">
+{
+  "format": "yyyy / MM / dd"
+}
+</i18n>
+
+<i18n lang="json" locale="en">
+{
+  "format": "MMM dd, yyyy"
+}
+</i18n>
