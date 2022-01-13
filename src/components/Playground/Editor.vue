@@ -66,6 +66,6 @@ const onChange = (e: Event) => {
 }
 
 .highlighted {
-  @apply relative m-0 p-0 pointer-events-none !bg-transparent;
+  @apply relative m-0 p-0 pointer-events-none !bg-transparent shadow-transparent;
 }
 </style>
