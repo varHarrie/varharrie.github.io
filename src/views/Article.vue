@@ -28,7 +28,7 @@
           w:text="sm gray-400"
         >
           <span>
-            {{ format(new Date(article.createdAt), 'dd / MM / yyyy') }}
+            {{ format(new Date(article.createdAt), t('article.format')) }}
           </span>
           <ul w:display="flex" w:align="center">
             <label-item
@@ -150,6 +150,9 @@ watch(commentsLoading, async () => {
 
 <i18n lang="json" locale="cn">
 {
+  "article": {
+    "format": "yyyy / MM / dd"
+  },
   "comment": {
     "title": "评论",
     "goto": "点击评论"
@@ -159,6 +162,9 @@ watch(commentsLoading, async () => {
 
 <i18n lang="json" locale="en">
 {
+  "article": {
+    "format": "MMM dd, yyyy"
+  },
   "comment": {
     "title": "Comments",
     "goto": "Click to Comment"
