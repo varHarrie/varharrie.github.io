@@ -13,7 +13,7 @@
     "noUnusedLocals": true,
     "strictNullChecks": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["unplugin-icons/types/vue3.d.ts"],
+    "types": ["unplugin-icons/types/vue"],
     "paths": {
       "~/*": ["src/*"]
     }
