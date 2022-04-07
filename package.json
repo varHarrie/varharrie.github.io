@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@emotion/babel-plugin-jsx-pragmatic": "^0.1.5",
+    "@iconify-json/ri": "^1.1.1",
     "@svgr/core": "^6.2.1",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
@@ -33,7 +34,6 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-prettier": "^4.0.0",

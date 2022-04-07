@@ -26,8 +26,9 @@ export default defineConfig({
       },
     }),
     Icons({
-      // expiremental
-      autoInstall: true,
+      compiler: 'jsx',
+      jsx: 'react',
+      scale: 1.2,
     }),
   ],
 });
