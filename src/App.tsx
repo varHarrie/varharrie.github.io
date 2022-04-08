@@ -1,6 +1,8 @@
 import { changeLanguage } from 'i18next';
 import React, { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
+import { NavLink, Outlet } from 'react-router-dom';
+import tw, { styled } from 'twin.macro';
 
 import IconPosts from '~icons/ri/article-line';
 import IconProjects from '~icons/ri/function-line';
@@ -30,7 +32,19 @@ const Title = tw.span`mx-0.5 text-blue-500`;
 
 const Nav = tw.nav`grid gap-3 lg:gap-6 grid-flow-col ml-auto leading-5`;
 
-const NavItem = tw.a`opacity-60 cursor-pointer hover:opacity-100 hover:text-blue-500`;
+const navItemStyle = tw`opacity-60 cursor-pointer hover:opacity-100 hover:text-blue-500`;
+
+const NavItem = styled.a`
+  ${navItemStyle}
+`;
+
+const NavLinkItem = styled(NavLink)`
+  ${navItemStyle}
+
+  &.active {
+    ${tw`text-blue-500`}
+  }
+`;
 
 const Footer = tw.footer`
   absolute bottom-4 left-0 
@@ -62,13 +76,18 @@ export default function App() {
         </a>
 
         <Nav>
-          <NavItem>
+          <NavLinkItem to="/posts">
             <IconPosts tw="inline lg:hidden" />
             <span tw="hidden lg:inline">{t('tab.posts')}</span>
+          </NavLinkItem>
+          <NavLinkItem to="/snippets">
             <IconSnippets tw="inline lg:hidden" />
             <span tw="hidden lg:inline">{t('tab.snippets')}</span>
+          </NavLinkItem>
+          <NavLinkItem to="/projects">
             <IconProjects tw="inline lg:hidden" />
             <span tw="hidden lg:inline">{t('tab.projects')}</span>
+          </NavLinkItem>
 
           <NavItem href={`mailto:${email}`}>
             <IconEmail />
@@ -84,6 +103,8 @@ export default function App() {
           </NavItem>
         </Nav>
       </Header>
+
+      <Outlet />
 
       <Footer>
         <a
