@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 import App from './App';
 import BaseStyles from './styles/BaseStyles';
+import Home from './views/Home';
 
 document.title = import.meta.env.VITE_APP_TITLE;
 
@@ -17,7 +18,9 @@ root.render(
     <BaseStyles />
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />} />
+        <Route path="/" element={<App />}>
+          <Route path="" element={<Home />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
