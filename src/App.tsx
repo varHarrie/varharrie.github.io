@@ -1,5 +1,6 @@
+import { changeLanguage } from 'i18next';
 import React, { useCallback } from 'react';
-import tw from 'twin.macro';
+import { useTranslation } from 'react-i18next';
 
 import IconPosts from '~icons/ri/article-line';
 import IconProjects from '~icons/ri/function-line';
@@ -11,6 +12,7 @@ import IconSnippets from '~icons/ri/sticky-note-line';
 import IconLight from '~icons/ri/sun-line';
 
 import useDarkMode from './hooks/use-dark-mode';
+import i18n from './i18n';
 
 const title = import.meta.env.VITE_TITLE;
 const email = import.meta.env.VITE_EMAIL;
@@ -37,12 +39,18 @@ const Footer = tw.footer`
   select-none
 `;
 
-function App() {
+export default function App() {
+  const { t } = useTranslation();
+
   const [darkModeEnabled, setDarkModelEnabled] = useDarkMode();
 
   const onToggleDarkMode = useCallback(() => {
     setDarkModelEnabled(!darkModeEnabled);
   }, [darkModeEnabled]);
+
+  const onToggleLanguage = useCallback(() => {
+    changeLanguage(i18n.language === 'cn' ? 'en' : 'cn');
+  }, []);
 
   return (
     <Wrapper>
@@ -56,16 +64,11 @@ function App() {
         <Nav>
           <NavItem>
             <IconPosts tw="inline lg:hidden" />
-            <span tw="hidden lg:inline">Posts</span>
-          </NavItem>
-          <NavItem>
+            <span tw="hidden lg:inline">{t('tab.posts')}</span>
             <IconSnippets tw="inline lg:hidden" />
-            <span tw="hidden lg:inline">Snippets</span>
-          </NavItem>
-          <NavItem>
+            <span tw="hidden lg:inline">{t('tab.snippets')}</span>
             <IconProjects tw="inline lg:hidden" />
-            <span tw="hidden lg:inline">Projects</span>
-          </NavItem>
+            <span tw="hidden lg:inline">{t('tab.projects')}</span>
 
           <NavItem href={`mailto:${email}`}>
             <IconEmail />
@@ -73,7 +76,7 @@ function App() {
           <NavItem href={githubUrl} target="_blank">
             <IconGithub />
           </NavItem>
-          <NavItem>
+          <NavItem onClick={onToggleLanguage}>
             <IconLanguage />
           </NavItem>
           <NavItem onClick={onToggleDarkMode}>
@@ -94,5 +97,3 @@ function App() {
     </Wrapper>
   );
 }
-
-export default App;

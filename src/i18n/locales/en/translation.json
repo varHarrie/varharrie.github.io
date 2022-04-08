@@ -1,0 +1,12 @@
+{
+  "tab": {
+    "posts": "Posts",
+    "snippets": "Snippets",
+    "projects": "Projects"
+  },
+  "intro": {
+    "title": "Hi, I'm Harrie",
+    "description": "A full-stack web developer, focuses on Node.js, Vue, React and other technologies",
+    "link": "Take a Look"
+  }
+}

@@ -17,8 +17,10 @@
     "@emotion/react": "^11.9.0",
     "@emotion/serialize": "^1.0.3",
     "@emotion/styled": "^11.8.1",
+    "i18next": "^21.6.14",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-i18next": "^11.16.2",
     "twin.macro": "^2.8.2"
   },
   "devDependencies": {

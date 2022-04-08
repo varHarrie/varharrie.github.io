@@ -6,6 +6,7 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
     'plugin:prettier/recommended',
   ],
   parser: '@typescript-eslint/parser',
@@ -18,12 +19,20 @@ module.exports = {
   },
   plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
   rules: {
+    camelcase: 'off',
     'no-use-before-define': 'off',
     'no-unused-vars': 'off',
     'no-redeclare': 'off',
+    'no-shadow': 'off',
+    'no-useless-constructor': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/no-unused-vars': ['error'],
     '@typescript-eslint/no-redeclare': ['error'],
+    '@typescript-eslint/no-shadow': ['error'],
+    '@typescript-eslint/no-useless-constructor': ['error'],
+    'react/require-default-props': 'off',
+    'react/destructuring-assignment': 'off',
+    'react/jsx-props-no-spreading': 'off',
     'react/jsx-filename-extension': [
       'error',
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
