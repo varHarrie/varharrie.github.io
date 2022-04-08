@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import tw from 'twin.macro';
 
 import IconPosts from '~icons/ri/article-line';
@@ -9,6 +9,8 @@ import IconEmail from '~icons/ri/mail-line';
 import IconDark from '~icons/ri/moon-line';
 import IconSnippets from '~icons/ri/sticky-note-line';
 import IconLight from '~icons/ri/sun-line';
+
+import useDarkMode from './hooks/use-dark-mode';
 
 const title = import.meta.env.VITE_TITLE;
 const email = import.meta.env.VITE_EMAIL;
@@ -36,6 +38,12 @@ const Footer = tw.footer`
 `;
 
 function App() {
+  const [darkModeEnabled, setDarkModelEnabled] = useDarkMode();
+
+  const onToggleDarkMode = useCallback(() => {
+    setDarkModelEnabled(!darkModeEnabled);
+  }, [darkModeEnabled]);
+
   return (
     <Wrapper>
       <Header>
@@ -68,9 +76,8 @@ function App() {
           <NavItem>
             <IconLanguage />
           </NavItem>
-          <NavItem>
-            <IconLight tw="hidden dark:inline" />
-            <IconDark tw="hidden light:inline" />
+          <NavItem onClick={onToggleDarkMode}>
+            {darkModeEnabled ? <IconLight /> : <IconDark />}
           </NavItem>
         </Nav>
       </Header>

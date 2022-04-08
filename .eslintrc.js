@@ -20,8 +20,10 @@ module.exports = {
   rules: {
     'no-use-before-define': 'off',
     'no-unused-vars': 'off',
+    'no-redeclare': 'off',
     '@typescript-eslint/no-use-before-define': ['error'],
     '@typescript-eslint/no-unused-vars': ['error'],
+    '@typescript-eslint/no-redeclare': ['error'],
     'react/jsx-filename-extension': [
       'error',
       { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
@@ -31,5 +33,6 @@ module.exports = {
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'import/extensions': 'off',
     'import/no-unresolved': 'off',
+    'import/export': 'off',
   },
 };
