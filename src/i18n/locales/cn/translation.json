@@ -5,8 +5,17 @@
     "projects": "项目"
   },
   "intro": {
-    "title": "你好，我是Harrie",
+    "title": "👋 你好，我是Harrie",
     "description": "一个全栈的Web开发者，主要专注于Node.js、Vue、React等技术",
     "link": "开始阅读"
+  },
+  "dateFormat": "yyyy / MM / dd",
+  "comment": {
+    "title": "评论",
+    "btn": "评论",
+    "owner": "作者"
+  },
+  "projects": {
+    "title": "项目"
   }
 }

@@ -5,8 +5,17 @@
     "projects": "Projects"
   },
   "intro": {
-    "title": "Hi, I'm Harrie",
+    "title": "👋 Hi! I'm Harrie",
     "description": "A full-stack web developer, focuses on Node.js, Vue, React and other technologies",
     "link": "Take a Look"
+  },
+  "dateFormat": "MMM dd, yyyy",
+  "comment": {
+    "title": "Comments",
+    "btn": "Click to Comment",
+    "owner": "Author"
+  },
+  "projects": {
+    "title": "Projects"
   }
 }

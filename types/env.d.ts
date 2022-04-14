@@ -6,4 +6,6 @@ interface ImportMetaEnv {
   VITE_GITHUB_REPO: string;
   VITE_GITHUB_MILESTONE_POSTS: string;
   VITE_GITHUB_MILESTONE_SNIPPETS: string;
+  VITE_ARTICLE_PAGE_SIZE: string;
+  VITE_COMMENT_PAGE_SIZE: string;
 }
