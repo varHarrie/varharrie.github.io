@@ -19,6 +19,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'simple-import-sort'],
   rules: {
     camelcase: 'off',
+    'max-classes-per-file': 'off',
     'no-use-before-define': 'off',
     'no-unused-vars': 'off',
     'no-redeclare': 'off',
