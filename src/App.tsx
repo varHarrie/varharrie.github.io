@@ -26,16 +26,17 @@ const email = import.meta.env.VITE_EMAIL;
 const githubUrl = import.meta.env.VITE_GITHUB_URL;
 
 const Wrapper = styled.div`
-  ${tw`relative pb-16 min-h-screen`}
-  background-image: radial-gradient(rgba(59, 130, 246, 0.3) 1px, rgba(59, 130, 246, 0) 0px);
+  ${tw`relative pt-20 pb-16 min-h-screen flex flex-col`}
+  background-image: radial-gradient(
+    rgba(59, 130, 246, 0.3) 1px,
+    rgba(59, 130, 246, 0) 0px
+  );
   background-size: 32px 32px;
 `;
 
-const Center = tw.div`mx-auto max-w-screen-lg`;
+const Header = tw.header`fixed top-0 z-10 h-20 w-full bg-gray-100 bg-opacity-50 backdrop-blur-sm saturate-100`;
 
-const Header = tw.header`sticky top-0 z-10 h-20 bg-gray-100 bg-opacity-50 backdrop-blur-sm saturate-100`;
-
-const HeaderCenter = tw(Center)`flex px-8 items-center h-full text-gray-400`;
+const HeaderCenter = tw.div`mx-auto max-w-screen-lg flex px-8 items-center h-full text-gray-400`;
 
 const Title = tw.span`mx-0.5 text-blue-500 font-semibold`;
 
@@ -63,6 +64,8 @@ const Footer = tw.footer`
   text-sm text-center text-gray-300
   select-none
 `;
+
+const FooterCenter = tw.div`mx-auto max-w-screen-lg`;
 
 export default function App() {
   const { t } = useTranslation();
@@ -124,12 +127,10 @@ export default function App() {
         </HeaderCenter>
       </Header>
 
-      <Center>
-        <Outlet />
-      </Center>
+      <Outlet />
 
       <Footer>
-        <Center>
+        <FooterCenter>
           <a
             tw="hover:text-blue-500"
             href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
@@ -137,7 +138,7 @@ export default function App() {
             CC BY-NC-SA 4.0
           </a>
           <span tw="ml-2">2016-present © varHarrie</span>
-        </Center>
+        </FooterCenter>
       </Footer>
     </Wrapper>
   );

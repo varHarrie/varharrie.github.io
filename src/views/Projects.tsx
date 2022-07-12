@@ -12,7 +12,7 @@ import github, {
   RepositoryType,
 } from '../services/github';
 
-const Wrapper = tw.main`px-8 py-12`;
+const Wrapper = tw.main`mx-auto w-full max-w-screen-lg px-8 py-12`;
 
 const Title = tw.h2`text-2xl text-gray-700`;
 

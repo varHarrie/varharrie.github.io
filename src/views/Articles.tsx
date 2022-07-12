@@ -14,7 +14,7 @@ import CategoryModel from '../models/CategoryModel';
 import github from '../services/github';
 import { createQueryURL } from '../utils';
 
-const Wrapper = tw.main`px-8 py-12`;
+const Wrapper = tw.main`mx-auto w-full max-w-screen-lg px-8 py-12`;
 
 const Title = tw.h2`text-2xl text-gray-600`;
 

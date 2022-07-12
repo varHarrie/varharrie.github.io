@@ -19,7 +19,7 @@ import CommentModel from '../models/CommentModel';
 import github from '../services/github';
 import { createQueryURL } from '../utils';
 
-const Wrapper = tw.article`px-8 py-12`;
+const Wrapper = tw.article`mx-auto w-full max-w-screen-lg px-8 py-12`;
 
 const Title = tw.h2`text-2xl text-gray-700`;
 
