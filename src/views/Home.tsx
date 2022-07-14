@@ -7,7 +7,7 @@ import IconArrowRight from '~icons/ri/arrow-right-line';
 
 import ShapeEffect from '../components/ShapeEffect/ShapeEffect';
 
-const Background = tw.div`absolute z-index[0] top-0 left-0 w-full h-full user-select[none] pointer-events-none opacity-75 blur-sm`;
+const Background = tw.div`absolute z-index[0] top-0 left-0 w-full h-full user-select[none] pointer-events-none opacity-50 blur-sm`;
 
 const Foreground = tw.div`absolute z-index[2] top-0 left-0 w-full h-full user-select[none] pointer-events-none`;
 
@@ -32,10 +32,10 @@ export default function Home() {
   return (
     <Wrapper>
       <Background>
-        <ShapeEffect count={8} sizes={[30, 60]} />
+        <ShapeEffect count={12} sizes={[30, 60]} />
       </Background>
       <Foreground>
-        <ShapeEffect count={8} sizes={[40, 80]} />
+        <ShapeEffect count={12} sizes={[40, 80]} />
       </Foreground>
       <Center>
         <Title>{t('intro.title')}</Title>

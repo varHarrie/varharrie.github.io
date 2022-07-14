@@ -3,8 +3,6 @@ interface Point {
   y: number;
 }
 
-type CanvasColor = string | CanvasGradient | CanvasPattern;
-
 function createPolygonPath2D(points: Point[]) {
   const path = new Path2D();
 
@@ -19,20 +17,22 @@ function createPolygonPath2D(points: Point[]) {
   return path;
 }
 
-export abstract class Shape {
+export abstract class Shape implements Point {
   x: number;
 
   y: number;
 
   size: number;
 
-  color: CanvasColor;
+  color: string;
+
+  angle = 2 * Math.PI * Math.random();
 
   rotate = Math.random() * Math.PI;
 
-  speed = 0.5 + Math.random();
+  speed = 0.2 + Math.random() * 1.5;
 
-  constructor(x: number, y: number, size: number, color: CanvasColor) {
+  constructor(x: number, y: number, size: number, color: string) {
     this.x = x;
     this.y = y;
     this.size = size;
@@ -41,7 +41,24 @@ export abstract class Shape {
 
   move() {
     this.x += this.speed;
-    this.rotate -= this.speed * 0.005;
+    this.rotate -= this.speed * 0.006;
+  }
+
+  createGradient(ctx: CanvasRenderingContext2D) {
+    const size = this.size * 1.5;
+    const endAngle = this.angle + Math.PI;
+
+    const startX = this.x + this.size * Math.sin(this.angle + this.rotate);
+    const startY = this.y + this.size * Math.cos(this.angle + this.rotate);
+    const endX = this.x + size * Math.sin(endAngle + this.rotate);
+    const endY = this.y + size * Math.cos(endAngle + this.rotate);
+
+    const gradient = ctx.createLinearGradient(startX, startY, endX, endY);
+    gradient.addColorStop(0, this.color);
+    gradient.addColorStop(0.3, this.color);
+    gradient.addColorStop(0.85, '#ffffff');
+
+    return gradient;
   }
 
   abstract draw(ctx: CanvasRenderingContext2D): void;
@@ -54,7 +71,7 @@ export class Polygon extends Shape {
     x: number,
     y: number,
     size: number,
-    color: CanvasColor,
+    color: string,
     sides: number
   ) {
     super(x, y, size, color);
@@ -74,19 +91,19 @@ export class Polygon extends Shape {
     });
 
     const path = createPolygonPath2D(points);
-    ctx.fillStyle = this.color;
+    ctx.fillStyle = this.createGradient(ctx);
     ctx.fill(path);
   }
 }
 
 export class Triangle extends Polygon {
-  constructor(x: number, y: number, size: number, color: CanvasColor) {
+  constructor(x: number, y: number, size: number, color: string) {
     super(x, y, size, color, 3);
   }
 }
 
 export class Rectangle extends Polygon {
-  constructor(x: number, y: number, size: number, color: CanvasColor) {
+  constructor(x: number, y: number, size: number, color: string) {
     super(x, y, size, color, 4);
   }
 }
@@ -99,7 +116,7 @@ export class Circle extends Shape {
     path.moveTo(0, 0);
     path.arc(this.x, this.y, radius, 0, 2 * Math.PI);
 
-    ctx.fillStyle = this.color;
+    ctx.fillStyle = this.createGradient(ctx);
     ctx.fill(path);
   }
 }

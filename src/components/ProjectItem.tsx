@@ -32,7 +32,7 @@ const Icon = styled.div`
   }
 `;
 
-const Title = tw.a`w-1/2 h-5 text-blue-500`;
+const Title = tw.a`block text-blue-500 truncate`;
 
 const Description = styled.div`
   ${tw`mt-2 text-gray-500 text-sm overflow-hidden`}
