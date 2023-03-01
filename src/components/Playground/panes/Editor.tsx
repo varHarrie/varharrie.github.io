@@ -12,7 +12,7 @@ const Wrapper = tw.label`relative p-4 block h-full box-border overflow-auto`;
 
 const Content = tw.div`absolute`;
 
-const sharedStyles = tw`whitespace-pre! text-base! leading-6! font-family[inherit]!`;
+const sharedStyles = tw`whitespace-pre! text-base! leading-6! [font-family:inherit]!`;
 
 const Textarea = styled.textarea`
   ${sharedStyles};

@@ -27,7 +27,7 @@ const Icon = styled.div`
   `}
 
   &::before {
-    ${tw`absolute top-0 left-0 block content[''] w-full h-full opacity-20`}
+    ${tw`absolute top-0 left-0 block [content:''] w-full h-full opacity-20`}
     background-color: currentColor;
   }
 `;

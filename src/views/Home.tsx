@@ -7,13 +7,13 @@ import IconArrowRight from '~icons/ri/arrow-right-line';
 
 import ShapeEffect from '../components/ShapeEffect/ShapeEffect';
 
-const Background = tw.div`absolute z-index[0] top-0 left-0 w-full h-full user-select[none] pointer-events-none opacity-50 blur-sm`;
+const Background = tw.div`absolute [z-index:0] top-0 left-0 w-full h-full [user-select:none] pointer-events-none opacity-50 blur-sm`;
 
-const Foreground = tw.div`absolute z-index[2] top-0 left-0 w-full h-full user-select[none] pointer-events-none`;
+const Foreground = tw.div`absolute [z-index:2] top-0 left-0 w-full h-full [user-select:none] pointer-events-none`;
 
 const Wrapper = tw.main`px-8 py-20 w-full flex-1 flex flex-col justify-center`;
 
-const Center = tw.div`relative z-index[1] mx-auto max-w-screen-lg text-center`;
+const Center = tw.div`relative [z-index:1] mx-auto max-w-screen-lg text-center`;
 
 const Title = tw.h2`text-5xl text-gray-600 font-bold leading-10`;
 
