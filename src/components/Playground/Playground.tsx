@@ -1,6 +1,5 @@
 import React, { memo, useCallback, useState } from 'react';
 import tw, { styled } from 'twin.macro';
-
 import IconCode from '~icons/ri/code-s-slash-line';
 
 import Console, { LogRecord } from './panes/Console';

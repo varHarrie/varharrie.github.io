@@ -35,7 +35,7 @@ function useArticlesQuery() {
       page: parseInt(page ?? '1', 10),
       pageSize: parseInt(import.meta.env.VITE_ARTICLE_PAGE_SIZE, 10),
     }),
-    [labels, page]
+    [labels, page],
   );
 }
 
@@ -68,7 +68,7 @@ export default function Articles(props: ArticlesProps) {
       });
 
       setArticles(list.map(ArticleModel.from));
-    }, [props.milestone, query])
+    }, [props.milestone, query]),
   );
 
   useEffect(() => {
@@ -80,10 +80,7 @@ export default function Articles(props: ArticlesProps) {
   }, [category]);
 
   const location = useLocation();
-  const getArticleLink = useCallback(
-    (id: number) => `${location.pathname}/${id}`,
-    [location]
-  );
+  const getArticleLink = useCallback((id: number) => `${location.pathname}/${id}`, [location]);
 
   const getLabelLink = useCallback((labels: string) => {
     return createQueryURL({ labels, page: 1 });
@@ -93,7 +90,7 @@ export default function Articles(props: ArticlesProps) {
     (page: number) => {
       navigate(createQueryURL({ page, labels: query.labels }));
     },
-    [query.labels, props.milestone]
+    [query.labels, props.milestone],
   );
 
   return (

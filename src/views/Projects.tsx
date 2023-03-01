@@ -6,11 +6,7 @@ import ProjectItem from '../components/ProjectItem';
 import ProjectSkeleton from '../components/ProjectSkeleton';
 import useHandling from '../hooks/use-handling';
 import ProjectModel from '../models/ProjectModel';
-import github, {
-  Direction,
-  RepositorySort,
-  RepositoryType,
-} from '../services/github';
+import github, { Direction, RepositorySort, RepositoryType } from '../services/github';
 
 const Wrapper = tw.main`mx-auto w-full max-w-screen-lg px-8 py-12`;
 
@@ -36,10 +32,10 @@ export default function Projects() {
         list
           .map(ProjectModel.from)
           .filter((p) => p.stargazersCount > 0 && !p.archived && !p.disabled)
-          .sort((a, b) => b.stargazersCount - a.stargazersCount)
+          .sort((a, b) => b.stargazersCount - a.stargazersCount),
       );
     }, []),
-    true
+    true,
   );
 
   useEffect(() => {

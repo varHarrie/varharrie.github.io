@@ -2,7 +2,6 @@ import copy from 'copy-text-to-clipboard';
 import React, { memo, useCallback, useEffect, useRef, useState } from 'react';
 import { CSSTransition, SwitchTransition } from 'react-transition-group';
 import tw, { styled } from 'twin.macro';
-
 import IconCheck from '~icons/ri/checkbox-circle-fill';
 import IconCopy from '~icons/ri/file-copy-2-line';
 
@@ -88,7 +87,7 @@ export default memo(function Editor(props: EditorProps) {
       const newValue = e.target.value;
       onChange?.(newValue);
     },
-    [onChange]
+    [onChange],
   );
 
   const [copied, onCopy] = useCopy(value);
@@ -113,15 +112,9 @@ export default memo(function Editor(props: EditorProps) {
           <FadeTransition
             key={`${copied}`}
             classNames="fade"
-            addEndListener={(node, done) =>
-              node.addEventListener('transitionend', done, false)
-            }
+            addEndListener={(node, done) => node.addEventListener('transitionend', done, false)}
           >
-            {copied ? (
-              <IconCheck tw="text-green-500" />
-            ) : (
-              <IconCopy tw="hover:text-blue-500" />
-            )}
+            {copied ? <IconCheck tw="text-green-500" /> : <IconCopy tw="hover:text-blue-500" />}
           </FadeTransition>
         </SwitchTransition>
       </CopyButton>

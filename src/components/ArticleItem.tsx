@@ -3,7 +3,6 @@ import React, { useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link, To } from 'react-router-dom';
 import tw from 'twin.macro';
-
 import IconComments from '~icons/ri/chat-2-line';
 
 import ArticleModel from '../models/ArticleModel';
@@ -28,10 +27,7 @@ export default function ArticleItem(props: ArticleItemProps) {
 
   const { t } = useTranslation();
 
-  const createdAt = useMemo(
-    () => format(new Date(article.createdAt), t('dateFormat')),
-    [article]
-  );
+  const createdAt = useMemo(() => format(new Date(article.createdAt), t('dateFormat')), [article]);
 
   return (
     <Wrapper>

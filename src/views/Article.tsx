@@ -3,7 +3,6 @@ import React, { memo, useCallback, useEffect, useMemo, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import tw from 'twin.macro';
-
 import IconComments from '~icons/ri/chat-2-line';
 
 import CommentItem from '../components/CommentItem';
@@ -47,7 +46,7 @@ function useArticle() {
       const result = await github.getIssue(parseInt(id!, 10));
       setArticle(ArticleModel.from(result));
     }, [id]),
-    true
+    true,
   );
 
   useEffect(() => {
@@ -67,7 +66,7 @@ function useCommentsQuery() {
       page: parseInt(page ?? '1', 10),
       pageSize: parseInt(import.meta.env.VITE_COMMENT_PAGE_SIZE, 10),
     }),
-    [id, page]
+    [id, page],
   );
 }
 
@@ -81,7 +80,7 @@ function useComments() {
 
       setComments(result.map(CommentModel.from));
     }, [query]),
-    true
+    true,
   );
 
   useEffect(() => {
@@ -142,11 +141,7 @@ export default memo(function Article() {
               <span>{createdAt}</span>
               <span tw="flex items-center">
                 {article.labels.map((label) => (
-                  <LabelItem
-                    key={label.id}
-                    label={label}
-                    getLink={getLabelLink}
-                  />
+                  <LabelItem key={label.id} label={label} getLink={getLabelLink} />
                 ))}
               </span>
               <span tw="flex items-center">

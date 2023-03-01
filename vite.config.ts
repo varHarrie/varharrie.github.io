@@ -4,6 +4,11 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  optimizeDeps: {
+    esbuildOptions: {
+      target: 'es2020',
+    },
+  },
   plugins: [
     react({
       babel: {
@@ -17,11 +22,7 @@ export default defineConfig({
               module: '@emotion/react',
             },
           ],
-          [
-            '@babel/plugin-transform-react-jsx',
-            { pragma: '__cssprop' },
-            'twin.macro',
-          ],
+          ['@babel/plugin-transform-react-jsx', { pragma: '__cssprop' }, 'twin.macro'],
         ],
       },
     }),

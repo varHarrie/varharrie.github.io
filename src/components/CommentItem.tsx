@@ -38,9 +38,7 @@ export default function CommentItem(props: CommentItemProps) {
       </Avatar>
       <Header>
         <a href={comment.user.htmlUrl}>{comment.user.login}</a>
-        {comment.authorAssociation === 'OWNER' && (
-          <OwnerTag>{t('comment.owner')}</OwnerTag>
-        )}
+        {comment.authorAssociation === 'OWNER' && <OwnerTag>{t('comment.owner')}</OwnerTag>}
         <a href={link} tw="opacity-40 text-xs">
           {createdAt}
         </a>

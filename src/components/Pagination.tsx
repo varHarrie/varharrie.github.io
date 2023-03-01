@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo } from 'react';
 import tw, { styled } from 'twin.macro';
-
 import IconArrowLeft from '~icons/ri/arrow-left-s-line';
 import IconArrowRight from '~icons/ri/arrow-right-s-line';
 
@@ -27,10 +26,7 @@ export type PaginationProps = {
 export default function Pagination(props: PaginationProps) {
   const { page, pageSize, total, onChange } = props;
 
-  const totalPages = useMemo(
-    () => Math.ceil(total / pageSize),
-    [total, pageSize]
-  );
+  const totalPages = useMemo(() => Math.ceil(total / pageSize), [total, pageSize]);
 
   const pages = useMemo(() => {
     if (totalPages < 1) return [];
@@ -38,7 +34,7 @@ export default function Pagination(props: PaginationProps) {
     const start = clamp(
       page + RADIUS > totalPages ? totalPages - RANGE : page - RADIUS,
       1,
-      totalPages
+      totalPages,
     );
 
     const end = clamp(start + RANGE, start, totalPages);
@@ -55,7 +51,7 @@ export default function Pagination(props: PaginationProps) {
       const to = (e.target as HTMLLIElement).dataset.page;
       if (to) onChange?.(parseInt(to, 10));
     },
-    [onChange]
+    [onChange],
   );
 
   const onPrevious = useCallback(() => {

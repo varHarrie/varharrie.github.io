@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import tw from 'twin.macro';
-
 import IconArrowRight from '~icons/ri/arrow-right-line';
 
 import ShapeEffect from '../components/ShapeEffect/ShapeEffect';

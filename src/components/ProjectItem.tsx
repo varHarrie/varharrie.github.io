@@ -1,6 +1,5 @@
 import React from 'react';
 import tw, { styled } from 'twin.macro';
-
 import IconIssue from '~icons/octicon/issue-opened-16';
 import IconForked from '~icons/octicon/repo-forked-16';
 import IconStar from '~icons/octicon/star-16';

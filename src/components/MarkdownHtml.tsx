@@ -1,6 +1,6 @@
 import MarkdownIt from 'markdown-it';
 import React, { memo, useEffect, useRef, useState } from 'react';
-import { createRoot, Root } from 'react-dom/client';
+import { Root, createRoot } from 'react-dom/client';
 import tw, { styled } from 'twin.macro';
 
 import { highlight } from '../utils';
@@ -78,13 +78,11 @@ export default memo(function MarkdownHtml(props: MarkdownHtmlProps) {
   useEffect(() => {
     if (!container.current) return;
 
-    container.current
-      .querySelectorAll<HTMLDivElement>('[data-playground]')
-      .forEach((el) => {
-        const root = createRoot(el);
-        root.render(<Playground {...el.dataset} />);
-        playgrounds.current.push(root);
-      });
+    container.current.querySelectorAll<HTMLDivElement>('[data-playground]').forEach((el) => {
+      const root = createRoot(el);
+      root.render(<Playground {...el.dataset} />);
+      playgrounds.current.push(root);
+    });
   }, [html]);
 
   useEffect(() => {

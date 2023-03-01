@@ -24,7 +24,7 @@ export default memo(function Preview(props: PreviewProps) {
       const { args } = e.data;
       onLog?.({ level: args.level, message: ensureArray(args.message) });
     },
-    [onLog]
+    [onLog],
   );
 
   useEffect(() => {

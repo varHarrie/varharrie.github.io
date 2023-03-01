@@ -1,6 +1,5 @@
 import React, { memo } from 'react';
 import tw, { styled } from 'twin.macro';
-
 import IconRight from '~icons/ri/arrow-right-s-line';
 import IconFatal from '~icons/ri/bug-fill';
 import IconError from '~icons/ri/close-circle-fill';
