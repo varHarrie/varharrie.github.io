@@ -1,10 +1,11 @@
+import { SANDBOX_TEMPLATES } from '@codesandbox/sandpack-react';
 import MarkdownIt from 'markdown-it';
 import React, { memo, useEffect, useRef, useState } from 'react';
 import { Root, createRoot } from 'react-dom/client';
 import tw, { styled } from 'twin.macro';
 
 import { highlight } from '../utils';
-import Playground from './Playground';
+import Playground, { PlaygroundProps } from './Playground';
 
 const Container = styled.div`
   ${tw`bg-transparent!`}
@@ -39,15 +40,14 @@ const toHtml = (markdown: string, playground?: boolean) => {
     const { content, info } = tokens[idx];
     const args = parseArgs(info);
 
-    if (playground && args.playground) {
+    if (playground && Object.keys(SANDBOX_TEMPLATES).includes(args.template)) {
       const el = document.createElement('div');
 
       Object.assign(el.dataset, {
-        playground: 'true',
-        type: args.playground,
-        title: args.playground,
-        lang: args.lang,
+        playground: true,
         code: content,
+        template: args.template,
+        autorun: args.autorun !== 'false',
       });
 
       return el.outerHTML;
@@ -80,7 +80,7 @@ export default memo(function MarkdownHtml(props: MarkdownHtmlProps) {
 
     container.current.querySelectorAll<HTMLDivElement>('[data-playground]').forEach((el) => {
       const root = createRoot(el);
-      root.render(<Playground {...el.dataset} />);
+      root.render(<Playground {...(el.dataset as PlaygroundProps)} />);
       playgrounds.current.push(root);
     });
   }, [html]);

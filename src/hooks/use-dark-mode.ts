@@ -3,12 +3,9 @@ import { useEffect } from 'react';
 import useLocalStorage from './use-local-storage';
 
 export default function useDarkMode() {
-  const [enabledValue, setEnabledValue] =
-    useLocalStorage<boolean>('dark-mode-enabled');
+  const [enabledValue, setEnabledValue] = useLocalStorage<boolean>('dark-mode-enabled');
 
-  const prefersDarkMode = window.matchMedia(
-    '(prefers-color-scheme: dark)'
-  ).matches;
+  const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
 
   const enabled = enabledValue ?? prefersDarkMode;
 

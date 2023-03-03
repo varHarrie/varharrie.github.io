@@ -4,6 +4,10 @@ import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  define: {
+    // https://github.com/codesandbox/sandpack/pull/787#issuecomment-1450353368
+    'process.env.SANDPACK_BARE_COMPONENTS': 'false',
+  },
   optimizeDeps: {
     esbuildOptions: {
       target: 'es2020',
