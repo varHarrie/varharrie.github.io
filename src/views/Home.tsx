@@ -14,9 +14,9 @@ const Wrapper = tw.main`px-8 py-20 w-full flex-1 flex flex-col justify-center`;
 
 const Center = tw.div`relative [z-index:1] mx-auto max-w-screen-lg text-center`;
 
-const Title = tw.h2`text-5xl text-gray-600 font-bold leading-10`;
+const Title = tw.h2`text-5xl text-slate-600 font-bold leading-10`;
 
-const Description = tw.p`mt-6 text-3xl text-gray-400`;
+const Description = tw.p`mt-6 text-3xl text-slate-400`;
 
 const LinkButton = tw.button`
   mt-12 py-3 px-6 inline-flex items-center

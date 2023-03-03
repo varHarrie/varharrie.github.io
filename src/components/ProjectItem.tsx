@@ -15,7 +15,7 @@ import ProjectModel from '../models/ProjectModel';
 
 const Wrapper = tw.div`
   relative p-3 pl-14
-  bg-white rounded-md shadow-sm hover:shadow-md
+  bg-white dark:bg-gray-900 rounded-md ring-1 ring-slate-600/5 shadow-sm hover:shadow-lg
   transition-all duration-300
 `;
 
@@ -34,14 +34,14 @@ const Icon = styled.div`
 const Title = tw.a`block text-blue-500 truncate`;
 
 const Description = styled.div`
-  ${tw`mt-2 text-gray-500 text-sm overflow-hidden`}
+  ${tw`mt-2 text-slate-400 text-sm overflow-hidden`}
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 `;
 
-const CountList = tw.ul`mt-2 space-x-3 flex min-w-0 text-sm text-gray-400 leading-5`;
+const CountList = tw.ul`mt-2 space-x-3 flex min-w-0 text-sm text-slate-400 leading-5`;
 
 const CountItem = tw.li`flex items-center`;
 

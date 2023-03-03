@@ -9,7 +9,7 @@ import playgrounds, { PlaygroundType } from './playgrounds';
 
 const Wrapper = tw.div`flex flex-col h-[800px] lg:h-[480px] rounded border border-gray-200 bg-white shadow-md overflow-hidden`;
 
-const Toolbar = tw.div`px-4 flex items-center h-10 border-b border-gray-200 text-gray-600`;
+const Toolbar = tw.div`px-4 flex items-center h-10 border-b border-gray-200 text-slate-600`;
 
 const Title = tw.span`ml-2 flex-1 min-w-0`;
 

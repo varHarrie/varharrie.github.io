@@ -8,11 +8,11 @@ import IconComments from '~icons/ri/chat-2-line';
 import ArticleModel from '../models/ArticleModel';
 import LabelItem from './LabelItem';
 
-const Wrapper = tw.div`flex flex-col justify-center h-20 border-t  border-dotted border-gray-300`;
+const Wrapper = tw.div`flex flex-col justify-center h-20 border-t  border-dotted border-gray-300 dark:border-gray-800`;
 
 const Row = tw.div`flex items-center`;
 
-const Left = tw.div`hidden lg:block w-36 text-sm text-gray-400 text-right`;
+const Left = tw.div`hidden lg:block w-36 text-sm text-slate-400 dark:text-slate-600 text-right`;
 
 const Right = tw.div`ml-4 flex-1 min-w-0 truncate`;
 
@@ -42,7 +42,7 @@ export default function ArticleItem(props: ArticleItemProps) {
           <IconComments tw="inline mr-2" />
           {article.comments}
         </Left>
-        <Right tw="flex text-sm text-gray-400">
+        <Right tw="flex text-sm text-slate-400">
           {article.labels.map((label) => (
             <LabelItem key={label.id} label={label} getLink={getLabelLink} />
           ))}

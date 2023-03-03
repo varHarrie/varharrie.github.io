@@ -10,7 +10,7 @@ const Container = styled.div`
   ${tw`bg-transparent!`}
 
   > pre {
-    ${tw`rounded shadow-md border border-gray-200 bg-white!`}
+    ${tw`rounded shadow-md border border-gray-200 bg-white dark:bg-slate-800 dark:border-gray-800`}
   }
 `;
 

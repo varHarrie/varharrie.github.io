@@ -8,10 +8,10 @@ import { clamp } from '../utils';
 const RADIUS = 2;
 const RANGE = 2 * RADIUS;
 
-const List = tw.ul`space-x-4 flex items-center `;
+const List = tw.ul`space-x-4 flex items-center`;
 
 const Item = styled.li<{ active?: boolean; disabled?: boolean }>`
-  ${tw`w-8 h-8 flex items-center justify-center rounded-sm text-gray-300  cursor-pointer`}
+  ${tw`w-8 h-8 flex items-center justify-center rounded-sm text-slate-300  cursor-pointer`}
   ${({ active }) => active && tw`bg-blue-500 text-white`}
   ${({ disabled }) => disabled && tw`opacity-30 cursor-not-allowed`}
 `;

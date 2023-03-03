@@ -3,7 +3,7 @@ import tw from 'twin.macro';
 
 import Skeleton from './Skeleton';
 
-const Wrapper = tw.div`relative mt-8 pt-8 pl-12 border-t border-gray-300`;
+const Wrapper = tw.div`relative mt-8 pt-8 pl-12 border-t border-gray-300 dark:border-gray-800`;
 
 export default function CommentSkeleton() {
   return (

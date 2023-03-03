@@ -20,17 +20,17 @@ import { createQueryURL } from '../utils';
 
 const Wrapper = tw.article`mx-auto w-full max-w-screen-lg px-8 py-12`;
 
-const Title = tw.h2`text-2xl text-gray-700`;
+const Title = tw.h2`text-2xl text-slate-700`;
 
-const Into = tw.div`mt-4 mb-8 space-x-4 flex flex-wrap content-center text-sm text-gray-400`;
+const Into = tw.div`mt-4 mb-8 space-x-4 flex flex-wrap content-center text-sm text-slate-400`;
 
 const ParagraphSkeleton = tw.ul`mt-8 space-y-4`;
 
-const CommentTitle = tw.h2`text-2xl text-gray-700`;
+const CommentTitle = tw.h2`text-2xl text-slate-700`;
 
 const CommentButton = tw.a`
   mt-4 block w-full h-10
-  leading-10 text-gray-400 text-center
+  leading-10 text-slate-400 text-center
   border border-gray-400 rounded-sm outline-none
   cursor-pointer 
 `;

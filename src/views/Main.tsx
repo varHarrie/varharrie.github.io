@@ -5,8 +5,8 @@ import prismLight from 'prism-themes/themes/prism-vs.css?raw';
 import prismDark from 'prism-themes/themes/prism-vsc-dark-plus.css?raw';
 import React, { useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
-import { NavLink, Outlet } from 'react-router-dom';
-import tw, { styled } from 'twin.macro';
+import { Link, NavLink, Outlet } from 'react-router-dom';
+import tw, { css, styled } from 'twin.macro';
 import IconPosts from '~icons/ri/article-line';
 import IconProjects from '~icons/ri/function-line';
 import IconGithub from '~icons/ri/github-line';
@@ -25,19 +25,18 @@ const email = import.meta.env.VITE_EMAIL;
 const githubUrl = import.meta.env.VITE_GITHUB_URL;
 
 const Wrapper = styled.div`
-  ${tw`relative pt-20 pb-16 min-h-screen flex flex-col`}
-  background-image: radial-gradient(
-    rgba(59, 130, 246, 0.3) 1px,
-    rgba(59, 130, 246, 0) 0px
-  );
-  background-size: 32px 32px;
+  ${tw`relative pb-16 min-h-screen flex flex-col`}
 `;
 
-const Header = tw.header`fixed top-0 z-10 h-20 w-full bg-gray-100 bg-opacity-50 backdrop-blur-sm saturate-100`;
+const Header = tw.header`h-20 w-full`;
 
-const HeaderCenter = tw.div`mx-auto max-w-screen-lg flex px-8 items-center h-full text-gray-400`;
+const HeaderCenter = tw.div`mx-auto max-w-screen-lg flex px-8 items-center h-full text-slate-500 font-semibold`;
 
-const Title = tw.span`mx-0.5 text-blue-500 font-semibold`;
+const TitleLink = styled(Link)`
+  ${tw`text-lg`}
+`;
+
+const Title = tw.span`mx-0.5 text-blue-500`;
 
 const Nav = tw.nav`grid gap-3 lg:gap-6 grid-flow-col ml-auto leading-5`;
 
@@ -55,16 +54,16 @@ const NavLinkItem = styled(NavLink)`
   }
 `;
 
-const Divider = tw.div`w-[1px] h-full bg-gray-200`;
+const Divider = tw.div`w-[1px] h-full bg-gray-200 dark:bg-gray-800`;
 
 const Footer = tw.footer`
   absolute bottom-4 left-0 
   space-x-2 w-full
-  text-sm text-center text-gray-300
+  text-sm text-center text-slate-300
   select-none
 `;
 
-const FooterCenter = tw.div`mx-auto max-w-screen-lg`;
+const FooterCenter = tw.div`mx-auto max-w-screen-lg dark:text-slate-800`;
 
 export default function Main() {
   const { t } = useTranslation();
@@ -82,17 +81,17 @@ export default function Main() {
 
   const onToggleLanguage = useCallback(() => {
     changeLanguage(i18n.language === 'cn' ? 'en' : 'cn');
+    localStorage.setItem('language', i18n.language);
   }, []);
 
   return (
     <Wrapper>
       <Header>
         <HeaderCenter>
-          <a href="/" tw="text-lg">
-            <span>{'{'}</span>
+          <TitleLink to="/">
+            <span>://</span>
             <Title>{title}</Title>
-            <span>{'}'}</span>
-          </a>
+          </TitleLink>
 
           <Nav>
             <NavLinkItem to="/posts">
@@ -119,7 +118,7 @@ export default function Main() {
             <NavItem onClick={onToggleLanguage}>
               <IconLanguage />
             </NavItem>
-            <NavItem tw="hidden" onClick={onToggleDarkMode}>
+            <NavItem onClick={onToggleDarkMode}>
               {darkModeEnabled ? <IconLight /> : <IconDark />}
             </NavItem>
           </Nav>

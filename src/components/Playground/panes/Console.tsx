@@ -9,7 +9,7 @@ import IconWarning from '~icons/ri/error-warning-fill';
 const List = tw.ul`m-0 p-0 w-full h-full overflow-auto leading-4 text-sm`;
 
 const Item = styled.li`
-  ${tw`p-1 flex items-center text-gray-600 border-b border-gray-100  border-solid`}
+  ${tw`p-1 flex items-center text-slate-600 border-b border-gray-100  border-solid`}
 
   &.info {
     ${tw`text-blue-500`}

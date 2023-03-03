@@ -3,11 +3,11 @@ import tw from 'twin.macro';
 
 import Skeleton from './Skeleton';
 
-const Wrapper = tw.div`flex flex-col justify-center h-20 border-t  border-dotted border-gray-300`;
+const Wrapper = tw.div`flex flex-col justify-center h-20 border-t  border-dotted border-gray-300 dark:border-gray-800`;
 
 const Row = tw.div`flex items-center`;
 
-const Left = tw.div`hidden lg:block w-36 text-sm text-gray-400 text-right`;
+const Left = tw.div`hidden lg:block w-36 text-sm text-right`;
 
 const Right = tw.div`ml-4 flex-1 min-w-0 truncate`;
 

@@ -5,7 +5,7 @@ import Skeleton from './Skeleton';
 
 const Wrapper = tw.div`
   relative p-3 pl-14
-  bg-white rounded-md shadow-sm hover:shadow-md
+  bg-white dark:bg-gray-900 rounded-md ring-1 ring-slate-600/5 shadow-sm hover:shadow-lg
   transition-all duration-300
 `;
 

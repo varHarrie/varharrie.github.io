@@ -8,7 +8,7 @@ const Wrapper = tw(Link)`mr-4 flex items-center`;
 
 const Dot = tw.span`w-2 h-2 rounded-full`;
 
-const Title = tw.span`ml-2`;
+const Title = tw.span`ml-2 dark:text-slate-600`;
 
 export type LabelItemProps = {
   label: LabelModel;

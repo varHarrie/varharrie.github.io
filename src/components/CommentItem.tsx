@@ -6,7 +6,7 @@ import tw from 'twin.macro';
 import CommentModel from '../models/CommentModel';
 import MarkdownHtml from './MarkdownHtml';
 
-const Wrapper = tw.div`relative mt-8 pt-8 pl-12 border-t border-gray-300`;
+const Wrapper = tw.div`relative mt-8 pt-8 pl-12 border-t border-gray-300 dark:border-gray-800`;
 
 const Avatar = tw.div`absolute top-8 left-0 w-8 h-8 rounded-full overflow-hidden`;
 

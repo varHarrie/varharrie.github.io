@@ -10,7 +10,7 @@ import github, { Direction, RepositorySort, RepositoryType } from '../services/g
 
 const Wrapper = tw.main`mx-auto w-full max-w-screen-lg px-8 py-12`;
 
-const Title = tw.h2`text-2xl text-gray-700`;
+const Title = tw.h2`text-2xl text-slate-700`;
 
 const List = tw.div`mt-8 grid grid-cols-1 lg:grid-cols-2 gap-2`;
 
