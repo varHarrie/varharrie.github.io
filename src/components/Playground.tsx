@@ -1,4 +1,5 @@
 import {
+  SANDBOX_TEMPLATES,
   SandpackCodeEditor,
   SandpackConsole,
   SandpackLayout,
@@ -34,6 +35,7 @@ export type PlaygroundProps = {
 
 export default memo(function Playground(props: PlaygroundProps) {
   const { code, template, autorun } = props;
+  const entry = SANDBOX_TEMPLATES[template].main;
 
   const [horizontalSize, setHorizontalSize] = useState(50);
   const [verticalSize, setVerticalSize] = useState(70);
@@ -91,8 +93,8 @@ export default memo(function Playground(props: PlaygroundProps) {
       theme="auto"
       template={template}
       options={{ autorun: autorun !== 'false' }}
-      customSetup={{ entry: '/index.js' }}
-      files={{ '/index.js': code }}
+      customSetup={{ entry }}
+      files={{ [entry]: code }}
     >
       <SandpackLayout>
         <SandpackCodeEditor
