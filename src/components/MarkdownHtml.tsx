@@ -88,7 +88,7 @@ export default memo(function MarkdownHtml(props: MarkdownHtmlProps) {
   useEffect(() => {
     return () => {
       playgrounds.current.forEach((root) => {
-        root.unmount();
+        setTimeout(() => root.unmount(), 0);
       });
     };
   }, []);
