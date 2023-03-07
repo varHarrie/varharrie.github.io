@@ -6,7 +6,7 @@ Personal blog site based on github issues.
 
 - 💪 No need backend server
 - 📱 Mobile compatible
-- 🌙 Supports dark theme (WIP)
+- 🌙 Supports dark theme
 - 🌏 Supports i18n
 - ⚾︎ Integrates code playground
 
@@ -14,7 +14,8 @@ Personal blog site based on github issues.
 
 1. Clone the repository: `git clone https://github.com/varHarrie/varharrie.github.io.git`
 2. Install dependencies: `yarn`
-3. Start dev server: `yarn run dev`
+3. Rename .env.example to .env.local and Modify its content
+4. Start dev server: `yarn run dev`
 
 ## License
 
