@@ -1,9 +1,10 @@
 import { SANDBOX_TEMPLATES } from '@codesandbox/sandpack-react';
 import MarkdownIt from 'markdown-it';
-import React, { memo, useEffect, useRef, useState } from 'react';
+import React, { memo, useContext, useEffect, useRef, useState } from 'react';
 import { Root, createRoot } from 'react-dom/client';
 import tw, { styled } from 'twin.macro';
 
+import { DarkModeValueContext } from '../hooks/use-dark-mode';
 import { highlight } from '../utils';
 import Playground, { PlaygroundProps } from './Playground';
 
@@ -59,6 +60,8 @@ const toHtml = (markdown: string, playground?: boolean) => {
   return md.render(markdown);
 };
 
+type ReactRootElement = HTMLDivElement & { reactRoot?: Root };
+
 export type MarkdownHtmlProps = {
   markdown: string;
   playground?: boolean;
@@ -66,6 +69,7 @@ export type MarkdownHtmlProps = {
 
 export default memo(function MarkdownHtml(props: MarkdownHtmlProps) {
   const { markdown, playground } = props;
+  const darkMode = useContext(DarkModeValueContext);
 
   const container = useRef<HTMLDivElement>(null);
   const playgrounds = useRef<Root[]>([]);
@@ -78,12 +82,19 @@ export default memo(function MarkdownHtml(props: MarkdownHtmlProps) {
   useEffect(() => {
     if (!container.current) return;
 
-    container.current.querySelectorAll<HTMLDivElement>('[data-playground]').forEach((el) => {
-      const root = createRoot(el);
-      root.render(<Playground {...(el.dataset as PlaygroundProps)} />);
-      playgrounds.current.push(root);
-    });
-  }, [html]);
+    container.current
+      .querySelectorAll<HTMLDivElement>('[data-playground]')
+      .forEach((el: ReactRootElement) => {
+        if (!el.reactRoot) {
+          el.reactRoot = createRoot(el);
+          playgrounds.current.push(el.reactRoot);
+        }
+
+        el.reactRoot.render(
+          <Playground {...(el.dataset as PlaygroundProps)} theme={darkMode ? 'dark' : 'light'} />,
+        );
+      });
+  }, [html, darkMode]);
 
   useEffect(() => {
     return () => {

@@ -1,6 +1,8 @@
-import { useEffect } from 'react';
+import { createContext, useEffect } from 'react';
 
 import useLocalStorage from './use-local-storage';
+
+export const DarkModeValueContext = createContext(false);
 
 export default function useDarkMode() {
   const [enabledValue, setEnabledValue] = useLocalStorage<boolean>('dark-mode-enabled');

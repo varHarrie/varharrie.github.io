@@ -1,7 +1,7 @@
 import React from 'react';
 import tw from 'twin.macro';
 
-const Bone = tw.div`h-6 rounded bg-gray-200 dark:bg-gray-900 animate-pulse`;
+const Bone = tw.div`h-6 rounded bg-gray-200 dark:bg-gray-800 animate-pulse`;
 
 type SkeletonProps = React.HTMLAttributes<HTMLDivElement> & {
   children?: React.ReactElement;

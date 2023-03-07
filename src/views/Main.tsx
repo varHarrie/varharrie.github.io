@@ -16,7 +16,7 @@ import IconDark from '~icons/ri/moon-line';
 import IconSnippets from '~icons/ri/sticky-note-line';
 import IconLight from '~icons/ri/sun-line';
 
-import useDarkMode from '../hooks/use-dark-mode';
+import useDarkMode, { DarkModeValueContext } from '../hooks/use-dark-mode';
 import i18n from '../i18n';
 import { loadThemeStyles } from '../utils';
 
@@ -85,56 +85,58 @@ export default function Main() {
   }, []);
 
   return (
-    <Wrapper>
-      <Header>
-        <HeaderCenter>
-          <TitleLink to="/">
-            <span>://</span>
-            <Title>{title}</Title>
-          </TitleLink>
+    <DarkModeValueContext.Provider value={darkModeEnabled}>
+      <Wrapper>
+        <Header>
+          <HeaderCenter>
+            <TitleLink to="/">
+              <span>://</span>
+              <Title>{title}</Title>
+            </TitleLink>
 
-          <Nav>
-            <NavLinkItem to="/posts">
-              <IconPosts tw="inline lg:hidden" />
-              <span tw="hidden lg:inline">{t('tab.posts')}</span>
-            </NavLinkItem>
-            <NavLinkItem to="/snippets">
-              <IconSnippets tw="inline lg:hidden" />
-              <span tw="hidden lg:inline">{t('tab.snippets')}</span>
-            </NavLinkItem>
-            <NavLinkItem to="/projects">
-              <IconProjects tw="inline lg:hidden" />
-              <span tw="hidden lg:inline">{t('tab.projects')}</span>
-            </NavLinkItem>
+            <Nav>
+              <NavLinkItem to="/posts">
+                <IconPosts tw="inline lg:hidden" />
+                <span tw="hidden lg:inline">{t('tab.posts')}</span>
+              </NavLinkItem>
+              <NavLinkItem to="/snippets">
+                <IconSnippets tw="inline lg:hidden" />
+                <span tw="hidden lg:inline">{t('tab.snippets')}</span>
+              </NavLinkItem>
+              <NavLinkItem to="/projects">
+                <IconProjects tw="inline lg:hidden" />
+                <span tw="hidden lg:inline">{t('tab.projects')}</span>
+              </NavLinkItem>
 
-            <Divider />
+              <Divider />
 
-            <NavItem href={`mailto:${email}`}>
-              <IconEmail />
-            </NavItem>
-            <NavItem href={githubUrl} target="_blank">
-              <IconGithub />
-            </NavItem>
-            <NavItem onClick={onToggleLanguage}>
-              <IconLanguage />
-            </NavItem>
-            <NavItem onClick={onToggleDarkMode}>
-              {darkModeEnabled ? <IconLight /> : <IconDark />}
-            </NavItem>
-          </Nav>
-        </HeaderCenter>
-      </Header>
+              <NavItem href={`mailto:${email}`}>
+                <IconEmail />
+              </NavItem>
+              <NavItem href={githubUrl} target="_blank">
+                <IconGithub />
+              </NavItem>
+              <NavItem onClick={onToggleLanguage}>
+                <IconLanguage />
+              </NavItem>
+              <NavItem onClick={onToggleDarkMode}>
+                {darkModeEnabled ? <IconLight /> : <IconDark />}
+              </NavItem>
+            </Nav>
+          </HeaderCenter>
+        </Header>
 
-      <Outlet />
+        <Outlet />
 
-      <Footer>
-        <FooterCenter>
-          <a tw="hover:text-blue-500" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
-            CC BY-NC-SA 4.0
-          </a>
-          <span tw="ml-2">2016-present © varHarrie</span>
-        </FooterCenter>
-      </Footer>
-    </Wrapper>
+        <Footer>
+          <FooterCenter>
+            <a tw="hover:text-blue-500" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+              CC BY-NC-SA 4.0
+            </a>
+            <span tw="ml-2">2016-present © varHarrie</span>
+          </FooterCenter>
+        </Footer>
+      </Wrapper>
+    </DarkModeValueContext.Provider>
   );
 }

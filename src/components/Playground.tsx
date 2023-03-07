@@ -28,13 +28,14 @@ const DragHandler = styled.div<DragHandlerProps>`
 const ConsoleWrapper = tw.div`w-full overflow-hidden`;
 
 export type PlaygroundProps = {
+  theme: 'dark' | 'light';
   code: string;
   template: SandpackPredefinedTemplate;
   autorun: string;
 };
 
 export default memo(function Playground(props: PlaygroundProps) {
-  const { code, template, autorun } = props;
+  const { theme, code, template, autorun } = props;
   const entry = SANDBOX_TEMPLATES[template].main;
 
   const [horizontalSize, setHorizontalSize] = useState(50);
@@ -90,7 +91,7 @@ export default memo(function Playground(props: PlaygroundProps) {
 
   return (
     <SandpackProvider
-      theme="auto"
+      theme={theme}
       template={template}
       options={{ autorun: autorun !== 'false' }}
       customSetup={{ entry }}
