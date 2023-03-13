@@ -12,6 +12,9 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
+  "homepage": "https://github.com/varHarrie/varharrie.github.io#readme",
+  "author": "varharrie <varharrie@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.0.26",
     "@emotion/react": "^11.10.6",
