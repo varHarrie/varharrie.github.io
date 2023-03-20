@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="512" height="512"
+  viewBox="0 0 512 512">
+  <defs>
+    <clipPath id="a">
+      <rect width="349" height="318" fill="none" />
+    </clipPath>
+    <clipPath id="c">
+      <rect width="512" height="512" />
+    </clipPath>
+  </defs>
+  <g id="b" clip-path="url(#c)">
+    <rect width="480" height="480" rx="88" transform="translate(16 16)" fill="#3b82f6" />
+    <g transform="translate(82 97)" opacity="0.3" clip-path="url(#a)">
+      <g transform="translate(-94 -135)">
+        <rect width="349" height="23" rx="11.5" transform="translate(94 135)" fill="#fff" />
+      </g>
+      <g transform="translate(-94 -76)">
+        <rect width="349" height="23" rx="11.5" transform="translate(94 135)" fill="#fff" />
+      </g>
+      <g transform="translate(-94 -17)">
+        <rect width="349" height="23" rx="11.5" transform="translate(94 135)" fill="#fff" />
+      </g>
+      <g transform="translate(-94 42)">
+        <rect width="349" height="23" rx="11.5" transform="translate(94 135)" fill="#fff" />
+      </g>
+      <g transform="translate(-94 101)">
+        <rect width="349" height="23" rx="11.5" transform="translate(94 135)" fill="#fff" />
+      </g>
+      <g transform="translate(-94 160)">
+        <rect width="349" height="23" rx="11.5" transform="translate(94 135)" fill="#fff" />
+      </g>
+    </g>
+    <path
+      d="M230.712-250.8h60.941V-2.349q0,21.095,5.86,33.986t26.955,12.891h4.688V58.591H272.9q-12.188,0-20.392-2.813a25.854,25.854,0,0,1-13.126-9.844q-4.922-7.032-6.8-18.751a192.274,192.274,0,0,1-1.875-29.533V-91.417H104.143V58.591H43.2V-189.859q0-21.095-5.86-33.986T10.388-236.737H5.7V-250.8H61.953q12.188,0,20.392,3.047A27.188,27.188,0,0,1,95.47-237.674q4.922,7.032,6.8,18.751a188.5,188.5,0,0,1,1.875,29.064v77.348H230.712Z"
+      transform="translate(88.3 351.8)" fill="#fff" />
+  </g>
+</svg>
